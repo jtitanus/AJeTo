@@ -1,3 +1,6 @@
+package info.agentviolet.ui;
+import info.agentviolet.impl.World;
+
 
 
 public class AgencyMain {
@@ -7,7 +10,7 @@ public class AgencyMain {
 	 */
 	public static void main(String[] args) {
 		
-		DrawingWindow w = new DrawingWindow( "Agency");
+		DrawingWindow w = new DrawingWindow( "Agency", new World());
 		w.setVisible(true);
 		
 	}
