@@ -2,5 +2,5 @@ package info.agentviolet.model;
 
 public interface IPresentationContext {
 
-	void draw();
+	void draw(IWorld world);
 }

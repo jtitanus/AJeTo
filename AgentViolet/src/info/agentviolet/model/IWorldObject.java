@@ -7,4 +7,8 @@ public interface IWorldObject {
 	void update();
 	
 	boolean isStatic();
+	
+	boolean isActive();
+	
+	void setActive(boolean isActive);
 }

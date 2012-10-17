@@ -14,7 +14,9 @@ public class World implements IWorld {
 	@Override
 	public void update() {
 		for (IWorldObject worldObject : worldObjects) {
-			worldObject.update();
+			if(worldObject.isActive()) {
+				worldObject.update();
+			}
 		}
 	}
 
@@ -25,10 +27,8 @@ public class World implements IWorld {
 
 	@Override
 	public void draw(IPresentationContext context) {
-		context.draw();
+		context.draw(this);
 	}
 
-	
-	
 
 }

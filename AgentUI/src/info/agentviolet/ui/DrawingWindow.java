@@ -17,7 +17,7 @@ class DrawingWindow extends JFrame {
 	DrawingWindow(String title, final IWorld world) {
 		super(title);
 		this.world = world;
-		context = new AgencyPresentationContext(world);
+		context = new AgencyPresentationContext();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(800, 550);
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -31,7 +31,7 @@ class DrawingWindow extends JFrame {
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			context.setGraphicContext((Graphics2D)g);
-			context.draw();
+			context.draw(world);
 		}
 	}
 }
