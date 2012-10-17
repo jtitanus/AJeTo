@@ -25,6 +25,11 @@ public class CreaturePen extends World {
 		creature.getLocation().getPosition().setX(200f);
 		creature.getLocation().getPosition().setY(200f);
 		addObject(creature);
+		
+		Muffin muffin = new Muffin();
+		muffin.getLocation().getPosition().setX(150f);
+		muffin.getLocation().getPosition().setY(150f);
+		addObject(muffin);
 	}
 	
 	@Override
@@ -32,8 +37,4 @@ public class CreaturePen extends World {
 		super.update();
 	}
 	
-	@Override
-	public void draw(IPresentationContext context) {
-		super.draw(context);
-	}
 }

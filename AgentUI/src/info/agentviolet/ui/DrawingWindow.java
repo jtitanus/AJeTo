@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 class DrawingWindow extends JFrame {
+		
+	private static final long serialVersionUID = -4019454661296013001L;
 	private IWorld world;
 	private AgencyPresentationContext context;
 
@@ -18,7 +20,7 @@ class DrawingWindow extends JFrame {
 		super(title);
 		this.world = world;
 		context = new AgencyPresentationContext();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		setSize(800, 550);
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		setLocation((d.width - getWidth()) / 2, (d.height - getHeight()) / 2);
@@ -26,6 +28,8 @@ class DrawingWindow extends JFrame {
 	}
 
 	class DrawingCanvas extends JPanel {
+		
+		private static final long serialVersionUID = 7568059355238737579L;
 
 		@Override
 		protected void paintComponent(Graphics g) {

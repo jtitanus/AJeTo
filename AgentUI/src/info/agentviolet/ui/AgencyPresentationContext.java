@@ -1,9 +1,13 @@
 package info.agentviolet.ui;
 
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
 
 import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
+import info.agentviolet.model.IWorldObject;
 
 public class AgencyPresentationContext implements IPresentationContext {
 
@@ -11,15 +15,22 @@ public class AgencyPresentationContext implements IPresentationContext {
 	
 	public void setGraphicContext(Graphics2D g) {
 		this.g=g;
+		g.setRenderingHint( RenderingHints.KEY_ANTIALIASING,
+                			RenderingHints.VALUE_ANTIALIAS_ON);
 	}
 	
 	
 	@Override
 	public void draw(IWorld world) {
 		
-		
-		g.drawString("Hallo!", 250, 250);
-		g.drawOval(300, 300, 50, 50);
+		for (IWorldObject wObject : world.getWorldObjects()) {
+			if(wObject.isActive()) {				
+				g.fillOval((int)wObject.getLocation().getPosition().getX(),
+						(int)wObject.getLocation().getPosition().getY(),
+						25, 25);
+				
+			}
+		} 		
 	}
 
 }

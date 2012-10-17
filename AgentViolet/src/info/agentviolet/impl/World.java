@@ -1,6 +1,7 @@
 package info.agentviolet.impl;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import info.agentviolet.model.IPresentationContext;
@@ -26,8 +27,8 @@ public class World implements IWorld {
 	}
 
 	@Override
-	public void draw(IPresentationContext context) {
-		context.draw(this);
+	public Collection<IWorldObject> getWorldObjects() {		
+		return worldObjects;
 	}
 
 
