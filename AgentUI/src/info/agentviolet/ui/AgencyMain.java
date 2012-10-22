@@ -1,7 +1,6 @@
 package info.agentviolet.ui;
 
 import info.agentviolet.examples.creatures.CreaturePen;
-import info.agentviolet.impl.World;
 import info.agentviolet.model.IWorld;
 
 public class AgencyMain {

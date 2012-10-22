@@ -2,9 +2,6 @@ package info.agentviolet.ui;
 
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.Shape;
-import java.awt.geom.Ellipse2D;
-
 import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;

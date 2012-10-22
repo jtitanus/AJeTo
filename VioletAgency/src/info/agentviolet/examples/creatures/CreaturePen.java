@@ -1,6 +1,5 @@
 package info.agentviolet.examples.creatures;
 import info.agentviolet.impl.World;
-import info.agentviolet.model.IPresentationContext;
 
 
 public class CreaturePen extends World {

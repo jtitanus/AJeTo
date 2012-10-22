@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;
 
