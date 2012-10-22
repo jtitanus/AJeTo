@@ -2,6 +2,8 @@ package info.agentviolet.model;
 
 public interface IWorldObject {
 
+	IWorld getWorld();
+	
 	ILocation getLocation();
 
 	void update();

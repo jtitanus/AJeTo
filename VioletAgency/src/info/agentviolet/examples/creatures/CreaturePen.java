@@ -5,22 +5,22 @@ import info.agentviolet.impl.World;
 public class CreaturePen extends World {
 
 	public CreaturePen () {
-		Creature creature = new Creature();
+		Creature creature = new Creature(this);
 		creature.getLocation().getPosition().setX(100f);
 		creature.getLocation().getPosition().setY(100f);
 		addObject(creature);
 		
-		creature = new Creature();
+		creature = new Creature(this);
 		creature.getLocation().getPosition().setX(200f);
 		creature.getLocation().getPosition().setY(100f);
 		addObject(creature);
 		
-		creature = new Creature();
+		creature = new Creature(this);
 		creature.getLocation().getPosition().setX(100f);
 		creature.getLocation().getPosition().setY(200f);
 		addObject(creature);
 		
-		creature = new Creature();
+		creature = new Creature(this);
 		creature.getLocation().getPosition().setX(200f);
 		creature.getLocation().getPosition().setY(200f);
 		addObject(creature);
@@ -30,10 +30,6 @@ public class CreaturePen extends World {
 		muffin.getLocation().getPosition().setY(150f);
 		addObject(muffin);
 	}
-	
-	@Override
-	public void update() {		
-		super.update();
-	}
+		
 	
 }

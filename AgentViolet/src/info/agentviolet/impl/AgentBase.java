@@ -1,9 +1,10 @@
 package info.agentviolet.impl;
 
+import info.agentviolet.model.IAgent;
 import info.agentviolet.model.ICognition;
 import info.agentviolet.model.INeeds;
 
-public class AgentBase extends WorldObjectBase {
+public class AgentBase extends WorldObjectBase implements IAgent {
 
 	private INeeds needs = new Needs();
 	private ICognition cognition = null;
@@ -21,4 +22,13 @@ public class AgentBase extends WorldObjectBase {
 		this.cognition=cognition;
 	}
 
+	@Override
+	public INeeds getNeeds() {
+		return needs;
+	}
+
+	@Override
+	public void update() {	
+		cognition.think(this);
+	}
 }

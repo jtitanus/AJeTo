@@ -1,12 +1,19 @@
 package info.agentviolet.impl;
 
 import info.agentviolet.model.ILocation;
+import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;
 
 public abstract class WorldObjectBase implements IWorldObject {
 
-	ILocation location = new Location();
+	protected IWorld world;
+	protected ILocation location = new Location();
 	private boolean isActive = true;
+	
+    @Override
+    public IWorld getWorld() {
+    	return world;
+    }	
 	
 	@Override
 	public ILocation getLocation() {	

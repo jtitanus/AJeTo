@@ -7,7 +7,7 @@ package info.agentviolet.model;
  */
 public interface IAgent extends IWorldObject {
 
-	//INeeds getNeeds();
+	INeeds getNeeds();
 	
 	ICognition getCognition();
 	
