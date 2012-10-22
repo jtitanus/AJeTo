@@ -1,6 +1,8 @@
 package info.agentviolet.model.objectAttributes;
 
-public interface IHitable {
+import info.agentviolet.model.IWorldObject;
+
+public interface IHitable extends IWorldObject {
 	
 	boolean isDestroyable();
 	

@@ -1,5 +1,6 @@
 package info.agentviolet.ui;
 
+import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
 
 import java.awt.Dimension;
@@ -14,12 +15,12 @@ class DrawingWindow extends JFrame {
 		
 	private static final long serialVersionUID = -4019454661296013001L;
 	private IWorld world;
-	private AgencyPresentationContext context;
+	private IPresentationContext context;
 
-	DrawingWindow(String title, final IWorld world) {
+	DrawingWindow(String title, final IWorld world, final IPresentationContext presentationContext) {
 		super(title);
 		this.world = world;
-		context = new AgencyPresentationContext();
+		context = presentationContext;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 		setSize(800, 550);
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();

@@ -7,9 +7,9 @@ import java.util.List;
 import info.agentviolet.model.INeed;
 import info.agentviolet.model.INeeds;
 
-public class Needs implements INeeds {
+public class NeedsBase implements INeeds {
 
-	List<INeed> needs = new ArrayList<INeed>();
+	protected List<INeed> needs = new ArrayList<INeed>();
 
 	@Override
 	public Collection<INeed> getNeeds() {

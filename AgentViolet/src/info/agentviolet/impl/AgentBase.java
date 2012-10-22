@@ -6,8 +6,8 @@ import info.agentviolet.model.INeeds;
 
 public class AgentBase extends WorldObjectBase implements IAgent {
 
-	private INeeds needs = new Needs();
-	private ICognition cognition = null;
+	protected INeeds needs = null;
+	protected ICognition cognition = null;
 	
 	@Override
 	public boolean isStatic() {
