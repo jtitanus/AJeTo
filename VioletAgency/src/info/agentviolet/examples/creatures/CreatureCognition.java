@@ -1,34 +1,24 @@
 package info.agentviolet.examples.creatures;
 
+import info.agentviolet.impl.basicActions.FeedAction;
 import info.agentviolet.impl.basicNeeds.Feed;
 import info.agentviolet.model.IAgent;
 import info.agentviolet.model.ICognition;
 import info.agentviolet.model.INeed;
-import info.agentviolet.model.IWorldObject;
-import info.agentviolet.model.objectAttributes.IConsumable;
 
 public class CreatureCognition implements ICognition {
 
 	@Override
 	public void think(IAgent agent) {
 		INeed mostWanted = agent.getNeeds().getMostDesperateNeed();
-		
-		if(mostWanted instanceof Feed) {
-			// look for food
-			IConsumable food = null;
-			for (IWorldObject wo : agent.getWorld().getWorldObjects()) {
-				if(wo instanceof IConsumable) {
-					food = (IConsumable)wo;
-					break;
-				}
-			} 
-			if(food!=null) {
-				agent.getLocation().setLookingPosition(food.getLocation().getPosition());
-			}
+
+		if (mostWanted instanceof Feed
+				&& ((Feed) mostWanted).getSatisfactionLevel() < 0.5f
+				&& (agent.getCurrentAction() == null || !(agent
+						.getCurrentAction() instanceof FeedAction))) {
+			agent.setCurrentAction(new FeedAction());
 		}
-		
+
 	}
-
-
 
 }
