@@ -21,6 +21,7 @@ public class FeedAction implements IAction {
 			agent.getLocation().setLookingPosition(
 					food.getLocation().getPosition());
 		}
+		
 
 	}
 

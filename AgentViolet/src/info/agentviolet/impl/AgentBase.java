@@ -1,5 +1,7 @@
 package info.agentviolet.impl;
 
+import java.util.Date;
+
 import info.agentviolet.model.IAction;
 import info.agentviolet.model.IAgent;
 import info.agentviolet.model.ICognition;
@@ -10,12 +12,18 @@ public class AgentBase extends WorldObjectBase implements IAgent {
 	protected INeeds needs = null;
 	protected ICognition cognition = null;
 	protected IAction currentAction = null;
+	protected Date lastUpdateTime = new Date();
 
 	@Override
 	public boolean isStatic() {
 		return false;
 	}
-
+	
+	@Override
+	public Date getLastUpdateTime() {
+		return lastUpdateTime;
+	}
+	
 	public ICognition getCognition() {
 		return cognition;
 	}
@@ -37,6 +45,7 @@ public class AgentBase extends WorldObjectBase implements IAgent {
 		if (currentAction != null) {
 			currentAction.letDo(this);
 		}
+		lastUpdateTime = new Date(System.currentTimeMillis());
 	}
 
 	@Override

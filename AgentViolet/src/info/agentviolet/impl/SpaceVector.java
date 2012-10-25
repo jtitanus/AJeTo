@@ -8,6 +8,14 @@ public class SpaceVector implements ISpaceVector {
 	private float y = 0f;
 	private float z = 0f;
 
+	public SpaceVector() {}
+	
+	public SpaceVector(float x, float y, float z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+	
 	@Override
 	public float getX() {
 		return x;

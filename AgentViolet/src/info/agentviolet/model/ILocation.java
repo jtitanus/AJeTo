@@ -1,18 +1,18 @@
 package info.agentviolet.model;
 
-import java.util.Date;
-
 public interface ILocation {
 
 	ISpaceVector getPosition();
 	
 	ISpaceVector getLookingPosition();
 	
-	void setLookingPosition(ISpaceVector lookingPosition);
-	
-	Date getLastUpdateTime();
+	void setLookingPosition(ISpaceVector lookingPosition);	
 	
 	float getVelocity();
 	
 	void setVelocity(float velocity);
+	
+	float getHeading();
+	
+	void setHeading(float heading);
 }

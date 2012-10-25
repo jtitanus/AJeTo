@@ -1,9 +1,10 @@
 package info.agentviolet.model;
 
+import java.util.Date;
+
 /***
- * 
- * Agent is a worldobject, that can reflect on his own state and needs and do an action
- * to satisfy his needs. 
+ * Agent is a world object, that can reflect on his own state and can perform an action
+ * to satisfy its needs. 
  *
  */
 public interface IAgent extends IWorldObject {
@@ -17,5 +18,7 @@ public interface IAgent extends IWorldObject {
 	IAction getCurrentAction();
 	
 	void setCurrentAction(IAction action);
+	
+	Date getLastUpdateTime();
 	
 }
