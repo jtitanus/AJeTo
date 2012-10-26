@@ -5,8 +5,8 @@ import info.agentviolet.model.ISpaceVector;
 
 public final class Location implements ILocation {
 
-	private final ISpaceVector pos = new SpaceVector();
-	private ISpaceVector lookPos = new SpaceVector();	
+	private ISpaceVector pos = new SpaceVector();
+	private ISpaceVector lookPos = new SpaceVector();
 	private float velocity = 0f;
 	private float heading = 0f;
 	private boolean isHeadingLookingInterlocked = true;
@@ -17,6 +17,11 @@ public final class Location implements ILocation {
 	}
 
 	@Override
+	public void setPosition(ISpaceVector newPosition) {
+		pos = newPosition;
+	}
+
+	@Override
 	public ISpaceVector getLookingPosition() {
 		return lookPos;
 	}
@@ -24,12 +29,10 @@ public final class Location implements ILocation {
 	@Override
 	public void setLookingPosition(ISpaceVector lookingPosition) {
 		lookPos = lookingPosition;
-		if(isHeadingLookingInterlocked) {
-			// TODO compute angle 
+		if (isHeadingLookingInterlocked) {
+			// TODO compute angle and set heading
 		}
 	}
-
-	
 
 	@Override
 	public float getVelocity() {
@@ -54,5 +57,5 @@ public final class Location implements ILocation {
 	public boolean isHeadingLookingInterlocked() {
 		return isHeadingLookingInterlocked;
 	}
-	
+
 }

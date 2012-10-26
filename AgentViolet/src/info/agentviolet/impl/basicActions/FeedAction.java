@@ -20,6 +20,10 @@ public class FeedAction implements IAction {
 		if (food != null) {
 			agent.getLocation().setLookingPosition(
 					food.getLocation().getPosition());
+			agent.setCurrentAction(new GoToLookingPositionAction());
+		}
+		else {
+			agent.setCurrentAction(null);
 		}
 		
 
