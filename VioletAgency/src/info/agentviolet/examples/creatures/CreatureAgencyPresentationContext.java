@@ -13,7 +13,7 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 	private Graphics2D g;
 
 	public void setGraphicContext(Object graphicContext) {
-		this.g = (Graphics2D)graphicContext;
+		this.g = (Graphics2D) graphicContext;
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
 	}
@@ -21,7 +21,7 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 	@Override
 	public void draw(IWorld world) {
 
-		// 
+		//
 		for (IWorldObject wObject : world.getWorldObjects()) {
 			if (wObject.isActive()) {
 				if (wObject instanceof Creature) {
@@ -40,12 +40,15 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 			if (wObject.isActive()) {
 				if (!wObject.isStatic()) {
 					g.setColor(Color.LIGHT_GRAY);
-					g.drawLine(
-							(int) wObject.getLocation().getPosition().getX() + 12,
-							(int) wObject.getLocation().getPosition().getY() + 12,
-							(int) wObject.getLocation().getLookingPosition()
-									.getX() + 12, (int) wObject.getLocation()
-									.getLookingPosition().getY() + 12);
+					if (wObject.getLocation().getLookingPosition() != null) {
+						g.drawLine((int) wObject.getLocation().getPosition()
+								.getX() + 12, (int) wObject.getLocation()
+								.getPosition().getY() + 12,
+								(int) wObject.getLocation()
+										.getLookingPosition().getX() + 12,
+								(int) wObject.getLocation()
+										.getLookingPosition().getY() + 12);
+					}
 				}
 			}
 		}

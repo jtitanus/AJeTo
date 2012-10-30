@@ -8,7 +8,7 @@ public abstract class WorldObjectBase implements IWorldObject {
 
 	protected IWorld world;
 	protected ILocation location = new Location();
-	private boolean isActive = true;
+	private boolean isActive = true;	
 	
     @Override
     public IWorld getWorld() {

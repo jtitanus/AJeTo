@@ -24,7 +24,7 @@ public class CreaturePen extends World {
 		creature.getLocation().getPosition().setY(400f);
 		addObject(creature);
 		
-		Muffin muffin = new Muffin();
+		Muffin muffin = new Muffin(this);
 		muffin.getLocation().getPosition().setX(300f);
 		muffin.getLocation().getPosition().setY(300f);
 		addObject(muffin);

@@ -1,6 +1,7 @@
 package info.agentviolet.impl;
 
 import info.agentviolet.model.ISpaceVector;
+import info.agentviolet.utils.VectorUtils;
 
 public class SpaceVector implements ISpaceVector {
 
@@ -45,5 +46,10 @@ public class SpaceVector implements ISpaceVector {
 	public void setZ(float z) {
 		this.z = z;
 	}
+
+	@Override
+	public int compareTo(ISpaceVector o) {				
+		return Float.compare(VectorUtils.getVectorLength(this), VectorUtils.getVectorLength(o));
+	}	
 
 }

@@ -1,6 +1,6 @@
 package info.agentviolet.model;
 
-public interface ISpaceVector {
+public interface ISpaceVector extends Comparable<ISpaceVector> {
 
 	public float getX();
 	public float getY();
