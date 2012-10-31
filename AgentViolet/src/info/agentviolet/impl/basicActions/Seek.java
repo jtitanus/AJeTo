@@ -22,17 +22,16 @@ public class Seek implements IAction {
 	}
 
 	@Override
-	public IActionResult letDo(IAgent agent) {
-		IActionResult res = ActionResultBase.UNFINISHED; 
+	public IActionResult perform(IAgent agent) {
+		IActionResult res = ActionResultBase.UNFINISHED_FAILURE; 
 		IWorldObject wo = VectorUtils.getNearestWorldObject(
 				agent.getWorld().getWorldObjects(), typeToSeek, 
 				agent.getLocation().getPosition());
 		if (wo != null) {
-			agent.getLocation().setLookingPosition(
-					wo.getLocation().getPosition());
-			res = ActionResultBase.FINISHED;
+			agent.getLocation().setLookingTarget(wo);
+			res = ActionResultBase.FINISHED_SUCCESS;
 		} else {
-			agent.getLocation().setLookingPosition(null);
+			agent.getLocation().setLookingTarget(null);
 		}
 		return res;
 	}

@@ -74,7 +74,7 @@ public class VectorUtils {
 	}
 
 	/***
-	 * Returns a filtered list of world objects of the specified type. 
+	 * Returns a filtered list of active world objects of the specified type. 
 	 * @param worldobjects
 	 * @param typeToSeek
 	 * @return
@@ -83,7 +83,7 @@ public class VectorUtils {
 			Collection<IWorldObject> worldobjects, Class<?> typeToSeek) {
 		ArrayList<IWorldObject> seekList = new ArrayList<IWorldObject>();
 		for (IWorldObject wo : worldobjects) {
-			if (typeToSeek.isInstance(wo)) {
+			if (typeToSeek.isInstance(wo) && wo.isActive()) {
 				seekList.add(wo);
 			}
 		}

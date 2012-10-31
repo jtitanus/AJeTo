@@ -18,10 +18,6 @@ public abstract class TaskBase implements ITask {
 		return currentAction;
 	}
 
-	// public void setCurrentAction(IAction action) {
-	// currentAction = action;
-	// }
-
 	@Override
 	public Collection<IAction> getActions() {
 		return actions;
@@ -35,18 +31,32 @@ public abstract class TaskBase implements ITask {
 	@Override
 	public void perform(IAgent agent) {
 		if (currentAction != null) {
-			IActionResult result = currentAction.letDo(agent);
-			if (result.isFinished()) {
-				if (actionIndex < actions.size() - 1) {
-					actionIndex++;
-					currentAction = actions.get(actionIndex);
+			if (currentAction.equals(actions.get(0)) // first action doesn't need consistency check
+					|| checkConsistency(agent)) {
+				IActionResult result = currentAction.perform(agent);
+				if (result.isFinished()) {
+					if (result.isSuccess()) {
+						if (actionIndex < actions.size() - 1) {
+							actionIndex++;
+							currentAction = actions.get(actionIndex);
+						} else {
+							// finished
+							agent.setTask(null);
+						}
+					} else {
+						// finished, but not successful -> break task
+						agent.setTask(null);
+						currentAction = null;
+					}
 				}
-				else {
-					// finished
-					agent.setTask(null);
-				}
+			}
+			else {
+				// cannot accomplish task -> break
+				agent.setTask(null);
 			}
 		}
 	}
 
+	/*** Can be called between actions to check if the purpose of the task still can be achieved; the sequence of actions is still consistent.  */ 
+	protected abstract boolean checkConsistency(IAgent agent); 
 }

@@ -2,9 +2,11 @@ package info.agentviolet.impl;
 
 import info.agentviolet.model.ILocation;
 import info.agentviolet.model.ISpaceVector;
+import info.agentviolet.model.IWorldObject;
 
 public final class Location implements ILocation {
 
+	private IWorldObject lookingTarget = null;
 	private ISpaceVector pos = new SpaceVector();
 	private ISpaceVector lookPos = new SpaceVector();
 	private float velocity = 0f;
@@ -23,11 +25,15 @@ public final class Location implements ILocation {
 
 	@Override
 	public ISpaceVector getLookingPosition() {
-		return lookPos;
+		if (lookingTarget == null) {
+			return lookPos;
+		} else {
+			return lookingTarget.getLocation().getPosition();
+		}
 	}
 
 	@Override
-	public void setLookingPosition(ISpaceVector lookingPosition) {
+	public void setLookingPosition(ISpaceVector lookingPosition) {		
 		lookPos = lookingPosition;
 		if (isHeadingLookingInterlocked) {
 			// TODO compute angle and set heading
@@ -56,6 +62,16 @@ public final class Location implements ILocation {
 
 	public boolean isHeadingLookingInterlocked() {
 		return isHeadingLookingInterlocked;
+	}
+
+	@Override
+	public IWorldObject getLookingTarget() {		
+		return lookingTarget;
+	}
+
+	@Override
+	public void setLookingTarget(IWorldObject targetWorldObject) {
+		lookingTarget = targetWorldObject;
 	}
 
 }

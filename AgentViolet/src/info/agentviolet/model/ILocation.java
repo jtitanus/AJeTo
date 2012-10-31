@@ -6,6 +6,10 @@ public interface ILocation {
 	
 	void setPosition(ISpaceVector newPosition);
 	
+	IWorldObject getLookingTarget();
+	
+	void setLookingTarget(IWorldObject worldObject);
+	
 	ISpaceVector getLookingPosition();
 	
 	void setLookingPosition(ISpaceVector lookingPosition);	

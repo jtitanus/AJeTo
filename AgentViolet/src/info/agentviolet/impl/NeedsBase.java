@@ -31,4 +31,13 @@ public class NeedsBase implements INeeds {
 		return mostDesperate;
 	}
 
+	@Override
+	public float getOverallSatisfactionLevel() {
+		float retVal = 0f;
+		for (INeed need : needs) {
+			retVal += need.getSatisfactionLevel();
+		}
+		return retVal / (float)needs.size();
+	}
+
 }

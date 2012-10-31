@@ -32,20 +32,20 @@ public class SpaceVector implements ISpaceVector {
 		return z;
 	}
 
-	@Override
-	public void setX(float x) {
-		this.x = x;
-	}
-
-	@Override
-	public void setY(float y) {
-		this.y = y;
-	}
-
-	@Override
-	public void setZ(float z) {
-		this.z = z;
-	}
+//	@Override
+//	public void setX(float x) {
+//		this.x = x;
+//	}
+//
+//	@Override
+//	public void setY(float y) {
+//		this.y = y;
+//	}
+//
+//	@Override
+//	public void setZ(float z) {
+//		this.z = z;
+//	}
 
 	@Override
 	public int compareTo(ISpaceVector o) {				

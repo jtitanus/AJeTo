@@ -23,7 +23,12 @@ public class Muffin extends WorldObjectBase implements IConsumable {
 
 	@Override
 	public void consume(IAgent subject) {
-		getWorld().getWorldObjects().remove(this);			
+		this.setActive(false);
+	}
+
+	@Override
+	public float getSatisfactionGain() {		
+		return 1f;
 	}
 
 }

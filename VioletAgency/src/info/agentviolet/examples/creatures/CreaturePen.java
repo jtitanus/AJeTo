@@ -1,32 +1,28 @@
 package info.agentviolet.examples.creatures;
+import info.agentviolet.impl.SpaceVector;
 import info.agentviolet.impl.World;
 
 public class CreaturePen extends World {
 
 	public CreaturePen () {
 		Creature creature = new Creature(this);
-		creature.getLocation().getPosition().setX(100f);
-		creature.getLocation().getPosition().setY(100f);
+		creature.getLocation().setPosition(new SpaceVector(100f, 100f, 0f));		
 		addObject(creature);
 		
 		creature = new Creature(this);
-		creature.getLocation().getPosition().setX(400f);
-		creature.getLocation().getPosition().setY(100f);
+		creature.getLocation().setPosition(new SpaceVector(400f, 100f, 0f));		
 		addObject(creature);
 		
 		creature = new Creature(this);
-		creature.getLocation().getPosition().setX(100f);
-		creature.getLocation().getPosition().setY(400f);
+		creature.getLocation().setPosition(new SpaceVector(100f, 400f, 0f));
 		addObject(creature);
 		
 		creature = new Creature(this);
-		creature.getLocation().getPosition().setX(400f);
-		creature.getLocation().getPosition().setY(400f);
+		creature.getLocation().setPosition(new SpaceVector(400f, 400f, 0f));
 		addObject(creature);
 		
 		Muffin muffin = new Muffin(this);
-		muffin.getLocation().getPosition().setX(300f);
-		muffin.getLocation().getPosition().setY(300f);
+		muffin.getLocation().setPosition(new SpaceVector(350f, 350f, 0f));
 		addObject(muffin);
 	}
 			

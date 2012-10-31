@@ -9,11 +9,24 @@ public abstract class NeedBase implements INeed {
 	@Override
 	public float getSatisfactionLevel() {
 		return satisfaction;
+	}	
+
+	@Override
+	public void increaseSatisfactionLevel(float satisfactionLevelPlus) {		
+		satisfaction += satisfactionLevelPlus;
+		if(satisfaction > 1f) {
+			satisfaction = 1f;
+		}
 	}
 
 	@Override
-	public void setSatisfactionLevel(float satisfactionLevel) {
-		satisfaction = satisfactionLevel;
+	public void decreaseSatisfactionLevel(float satisfactionLevelMinus) {
+		satisfaction -= satisfactionLevelMinus;
+		if(satisfaction < 0f) {
+			satisfaction = 0f;
+		}
+		
 	}
 
+	
 }

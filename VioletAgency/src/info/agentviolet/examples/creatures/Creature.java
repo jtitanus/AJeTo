@@ -5,13 +5,12 @@ import info.agentviolet.model.IWorld;
 
 public class Creature extends AgentBase {
 	
-	private static CreatureCognition creatureCognition = new CreatureCognition();
-	private static CreatureNeeds creatureNeeds = new CreatureNeeds();
+	private static CreatureCognition creatureCognition = new CreatureCognition();	
 	
 	public Creature(IWorld world) {
 		this.world = world;
 		this.setCognition(creatureCognition);
-		this.needs = creatureNeeds;
+		this.needs = new CreatureNeeds();
 	}
 	
 	@Override

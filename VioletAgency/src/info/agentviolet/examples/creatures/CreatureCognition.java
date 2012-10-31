@@ -17,6 +17,9 @@ public class CreatureCognition implements ICognition {
 				agent.setTask(new FeedTask());
 			}
 		}
+		else {
+//			agent.getTask().
+		}
 	}
 
 }

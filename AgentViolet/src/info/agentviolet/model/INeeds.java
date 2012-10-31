@@ -7,4 +7,6 @@ public interface INeeds {
 	Collection<INeed> getNeeds();
 	
 	INeed getMostDesperateNeed();
+	
+	float getOverallSatisfactionLevel();
 }

@@ -6,4 +6,5 @@ public interface IActionResult {
 	
 	int getPercentageCompleted();
 	
+	boolean isSuccess();
 }

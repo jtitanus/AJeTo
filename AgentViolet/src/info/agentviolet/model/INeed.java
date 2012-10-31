@@ -6,6 +6,8 @@ public interface INeed {
 	
 	float getSatisfactionLevel();
 	
-	void setSatisfactionLevel(float satisfactionLevel);
+	void increaseSatisfactionLevel(float satisfactionLevelPlus);
+	
+	void decreaseSatisfactionLevel(float satisfactionLevelMinus);
 	
 }
