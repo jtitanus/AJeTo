@@ -1,5 +1,6 @@
 package info.agentviolet.examples.creatures;
 
+import info.agentviolet.impl.ObjectAttributesBase;
 import info.agentviolet.model.IAgent;
 import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
@@ -33,8 +34,8 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 					g.setColor(Color.GREEN);
 				}
 				g.fillOval((int) wObject.getLocation().getPosition().getX(),
-						(int) wObject.getLocation().getPosition().getY(), 24,
-						24);
+						(int) wObject.getLocation().getPosition().getY(),
+						INT_SMALL_STATUS_BAR_WIDTH,INT_SMALL_STATUS_BAR_WIDTH);
 			}
 		}
 
@@ -56,19 +57,37 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 		
 		// visualize needs
 		for (IWorldObject wObject : world.getWorldObjects()) {
-			if (wObject instanceof IAgent &&  wObject.isActive() && !wObject.isStatic()) {
-				
-					float satisfaction = ((IAgent)wObject).getNeeds().getOverallSatisfactionLevel();
-					
-					g.setColor(Color.BLACK);
-					g.fillRect((int) wObject.getLocation().getPosition().getX(),
-							   (int) wObject.getLocation().getPosition().getY()-12, INT_SMALL_STATUS_BAR_WIDTH, INT_SMALL_STATUS_BAR_HEIGHT);
-					g.setColor(Color.GREEN);
-					g.fillRect((int) wObject.getLocation().getPosition().getX(),
-							(int) wObject.getLocation().getPosition().getY() - 12,
-							(int)satisfaction*INT_SMALL_STATUS_BAR_WIDTH, INT_SMALL_STATUS_BAR_HEIGHT);
-				}
-			
+			if (wObject instanceof IAgent && wObject.isActive()
+					&& !wObject.isStatic()) {
+				float satisfaction = ((IAgent) wObject).getNeeds().getOverallSatisfactionLevel();
+				g.setColor(Color.BLACK);
+				g.fillRect((int) wObject.getLocation().getPosition().getX(),
+						(int) wObject.getLocation().getPosition().getY() - 12,
+						INT_SMALL_STATUS_BAR_WIDTH, INT_SMALL_STATUS_BAR_HEIGHT);
+				g.setColor(Color.ORANGE);
+				g.fillRect((int) wObject.getLocation().getPosition().getX(),
+						(int) wObject.getLocation().getPosition().getY() - 12,
+						(int) satisfaction * INT_SMALL_STATUS_BAR_WIDTH,
+						INT_SMALL_STATUS_BAR_HEIGHT);
+			}
+		}
+		
+		// visualize hit points
+		for (IWorldObject wObject : world.getWorldObjects()) {
+			if (wObject instanceof IAgent && wObject.isActive()
+					&& !wObject.isStatic()) {
+				float maxHitpoints = (float) wObject.getAttributes().getAttribute(ObjectAttributesBase.MAX_HITPOINTS);
+				float hitpoints = (float) wObject.getAttributes().getAttribute(ObjectAttributesBase.HITPOINTS);
+				g.setColor(Color.BLACK);
+				g.fillRect((int) wObject.getLocation().getPosition().getX(),
+						(int) wObject.getLocation().getPosition().getY() - 16,
+						INT_SMALL_STATUS_BAR_WIDTH, INT_SMALL_STATUS_BAR_HEIGHT);
+				g.setColor(Color.GREEN);
+				g.fillRect((int) wObject.getLocation().getPosition().getX(),
+						(int) wObject.getLocation().getPosition().getY() - 16,
+						(int) (maxHitpoints / hitpoints)  *  INT_SMALL_STATUS_BAR_WIDTH,
+						INT_SMALL_STATUS_BAR_HEIGHT);
+			}
 		}
 	}
 

@@ -45,6 +45,7 @@ public class AgentBase extends WorldObjectBase implements IAgent {
 		if (task != null) {
 			task.perform(this);
 		}
+		location.update();
 		lastUpdateTime = new Date(System.nanoTime());
 	}
 

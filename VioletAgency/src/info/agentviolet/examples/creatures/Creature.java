@@ -11,6 +11,8 @@ public class Creature extends AgentBase {
 		this.world = world;
 		this.setCognition(creatureCognition);
 		this.needs = new CreatureNeeds();
+		this.attributes = new CreatureAttributes();
+
 	}
 	
 	@Override

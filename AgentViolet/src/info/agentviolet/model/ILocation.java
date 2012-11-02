@@ -14,11 +14,13 @@ public interface ILocation {
 	
 	void setLookingPosition(ISpaceVector lookingPosition);	
 	
-	float getVelocity();
+	ISpaceVector getVelocity();
 	
-	void setVelocity(float velocity);
+	void setVelocity(ISpaceVector velocityVector);
 	
 	float getHeading();
 	
 	void setHeading(float heading);
+
+	void update();
 }

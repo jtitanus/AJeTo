@@ -5,6 +5,8 @@ public interface IWorldObject {
 	IWorld getWorld();
 	
 	ILocation getLocation();
+	
+	IObjectAttributes getAttributes();
 
 	void update();
 	

@@ -12,9 +12,12 @@ public interface ITask {
 	
 	Collection<IAction> getActions();
 	
-	/*** Starts / resets the action sequence. */
+	/*** Starts / resets the action sequence and time count. */
 	void start();
 	
 	/*** Performs the next step update */
 	void perform(IAgent agent);
+	
+	/*** Gets the time amount, how long this Task is already running in milliseconds. */ 
+	long getRunningTime();
 }
