@@ -18,12 +18,13 @@ public class GoToLookingPositionAction implements IAction {
 			if(!VectorUtils.isAtPosition(agent.getLocation().getPosition(), agent.getLocation().getLookingPosition(), 25f)){ // TODO constant tolerance value
 				// set velocity vector
 				ISpaceVector diffVec = VectorUtils.subtract(agent.getLocation().getLookingPosition(), agent.getLocation().getPosition());
-//				diffVec = VectorUtils.add(agent.getLocation().getPosition(), diffVec);
-				diffVec = VectorUtils.multiplyScalar(diffVec, (float) agent.getAttributes().getAttribute(ObjectAttributesBase.MAX_VELOCITY));
+				// diffVec = VectorUtils.multiplyScalar(diffVec, (float) agent.getAttributes().getAttribute(ObjectAttributesBase.MAX_VELOCITY));
+				float angle = VectorUtils.getAngleXY(diffVec);
+				diffVec = VectorUtils.getVectorByAngle(angle, (float) agent.getAttributes().getAttribute(ObjectAttributesBase.MAX_VELOCITY));
 				agent.getLocation().setVelocity(diffVec);
 			}
 			else {
-				agent.getLocation().setVelocity(new SpaceVector(0f,0f,0f));
+				agent.getLocation().setVelocity(new SpaceVector(0f, 0f, 0f));
 				res = ActionResultBase.FINISHED_SUCCESS;
 			}
 		}

@@ -20,14 +20,36 @@ public class VectorUtils {
 						.abs(tolerance);
 	}
 
-	public static float getAngle(ISpaceVector fromPos, ISpaceVector toPos) {
-		// TODO compute angle from two vectors
-		return 0f;
+	/*** In degrees. Zero degrees is x=1, y=0 or the x axis */
+	public static float getAngleXY(ISpaceVector relPos) {
+		float retval = ((float) Math.atan(relPos.getY() / relPos.getX())) * (180f / (float) Math.PI);
+		if (relPos.getX() >= 0f) {
+			if (relPos.getY() >= 0f) {
+				// nothing
+			} else {
+				// x pos, y neg
+				retval = 360f + retval;
+			}
+		} else {
+			// x neg, y pos
+			if (relPos.getY() > 0f) {
+				retval = 180f + retval;
+			} else {
+				// x neg, y neg
+				retval += 180;
+			}
+		}
+		return retval; // TODO: double / float?
 	}
 
+	public static ISpaceVector getVectorByAngle(float angle, float length) {
+		return new SpaceVector((float)Math.cos(angle*(Math.PI/180f)) * length, (float)Math.sin(angle*(Math.PI/180f)) * length, 0f);
+	}	
+	
 	public static ISpaceVector add(ISpaceVector vec1, ISpaceVector vec2) {
-		return new SpaceVector(vec1.getX() + vec2.getX(), vec1.getY()
-				+ vec2.getY(), vec1.getZ() + vec2.getZ());
+		return new SpaceVector(vec1.getX() + vec2.getX(),
+							   vec1.getY() + vec2.getY(),
+							   vec1.getZ() + vec2.getZ());
 	}
 
 	public static ISpaceVector subtract(ISpaceVector vec1, ISpaceVector vec2) {
@@ -88,5 +110,6 @@ public class VectorUtils {
 			}
 		}
 		return seekList;
-	}	
+	}
+	
 }

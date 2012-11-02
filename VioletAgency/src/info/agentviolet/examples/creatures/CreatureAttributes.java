@@ -9,6 +9,6 @@ public class CreatureAttributes extends ObjectAttributesBase {
 		// set default values
 		setAttribute(MAX_HITPOINTS, 100f);
 		setAttribute(HITPOINTS, 100f);
-		setAttribute(MAX_VELOCITY, 0.005f);
+		setAttribute(MAX_VELOCITY, 1f);
 	}
 }
