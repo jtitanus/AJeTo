@@ -1,6 +1,8 @@
 package info.agentviolet.examples.creatures;
 
 import info.agentviolet.basicTasks.FeedTask;
+import info.agentviolet.basicTasks.IdleTask;
+import info.agentviolet.impl.ObjectAttributesBase;
 import info.agentviolet.impl.basicNeeds.Feed;
 import info.agentviolet.model.IAgent;
 import info.agentviolet.model.ICognition;
@@ -16,9 +18,9 @@ public class CreatureCognition implements ICognition {
 					&& ((Feed) mostWanted).getSatisfactionLevel() < 0.5f) {
 				agent.setTask(new FeedTask());
 			}
-		}
+		}		
 		else {
-//			agent.getTask().
+			// continue doing what is creature currently doing
 		}
 	}
 

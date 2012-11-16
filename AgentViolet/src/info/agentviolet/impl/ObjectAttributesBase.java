@@ -13,6 +13,7 @@ public class ObjectAttributesBase implements IObjectAttributes {
 	public static final int MAX_HITPOINTS = 0;	// value float
 	public static final int HITPOINTS = 1;		// value float
 	public static final int MAX_VELOCITY = 2;	// value float
+	public static final int THINKING_TIME = 3;  // value long (milliseconds)
 	
 	protected Object[] attributes;
 	

@@ -1,0 +1,5 @@
+
+- Pathfinding and collisions
+- Loitering?
+- Health
+- Eat other agents when starving?
