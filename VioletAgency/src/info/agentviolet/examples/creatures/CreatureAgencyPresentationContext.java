@@ -25,13 +25,15 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 	@Override
 	public void draw(IWorld world) {
 
+		g.setColor(new Color(220, 250, 210));
+		g.fillRect(0, 0, g.getDeviceConfiguration().getBounds().width, g.getDeviceConfiguration().getBounds().height);
 		//
 		for (IWorldObject wObject : world.getWorldObjects()) {
 			if (wObject.isActive()) {
 				if (wObject instanceof Creature) {
-					g.setColor(Color.DARK_GRAY);
-				} else {
 					g.setColor(Color.GREEN);
+				} else if (wObject instanceof Muffin) {
+					g.setColor(new Color(140, 70, 10)); // brown
 				}
 				g.fillOval((int) wObject.getLocation().getPosition().getX(),
 						(int) wObject.getLocation().getPosition().getY(),

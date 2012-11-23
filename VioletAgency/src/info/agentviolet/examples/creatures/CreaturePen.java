@@ -5,6 +5,7 @@ import info.agentviolet.impl.World;
 public class CreaturePen extends World {
 
 	public CreaturePen () {
+		// Creatures
 		Creature creature = new Creature(this);
 		creature.getLocation().setPosition(new SpaceVector(100f, 100f, 0f));		
 		addObject(creature);
@@ -21,6 +22,7 @@ public class CreaturePen extends World {
 		creature.getLocation().setPosition(new SpaceVector(400f, 400f, 0f));
 		addObject(creature);
 		
+		// Muffins
 		Muffin muffin = new Muffin(this);
 		muffin.getLocation().setPosition(new SpaceVector(350f, 350f, 0f));
 		addObject(muffin);
@@ -39,6 +41,15 @@ public class CreaturePen extends World {
 		
 		muffin = new Muffin(this);
 		muffin.getLocation().setPosition(new SpaceVector(50f, 200f, 0f));
+		addObject(muffin);
+		
+		muffin = new Muffin(this);
+		muffin.getLocation().setPosition(new SpaceVector(210f, 30f, 0f));
+		addObject(muffin);
+		
+		muffin = new Muffin(this);
+		muffin.getLocation().setPosition(new SpaceVector(300f, 460f, 0f));
+		addObject(muffin);
 		addObject(muffin);
 	}
 			
