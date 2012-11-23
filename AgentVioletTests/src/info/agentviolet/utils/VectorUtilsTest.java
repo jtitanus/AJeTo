@@ -68,6 +68,64 @@ public class VectorUtilsTest {
 		assertEquals(false, VectorUtils.isAtPosition(from, to, 0.01f));
 	}
 	
+	@Test
+	public void testSubtract() {
+		ISpaceVector from = new SpaceVector(3f, 4f, 5f);
+		ISpaceVector to = new SpaceVector(3f, 4f, 5f);
+		ISpaceVector diff = VectorUtils.subtract(to, from);
+		
+		assertEquals(0f, diff.getX(), 1E-5f);
+		assertEquals(0f, diff.getY(), 1E-5f);
+		assertEquals(0f, diff.getZ(), 1E-5f);
+	}
+	
+	@Test
+	public void testAdd() {
+		ISpaceVector from = new SpaceVector(3f, 4f, 5f);
+		ISpaceVector to = new SpaceVector(3f, 4f, 5f);
+		ISpaceVector addition = VectorUtils.add(to, from);
+		
+		assertEquals(6f, addition.getX(), 1E-5f);
+		assertEquals(8f, addition.getY(), 1E-5f);
+		assertEquals(10f, addition.getZ(), 1E-5f);
+	}
+	
+	@Test
+	public void testGetDistance0() {
+		ISpaceVector from = new SpaceVector(3f, 4f, 5f);
+		ISpaceVector to = new SpaceVector(3f, 4f, 5f);
+		float dist = VectorUtils.getDistance(from, to);
+		
+		assertEquals(0f, dist, 1E-5f);		
+	}
+	
+	@Test
+	public void testGetDistance1() {
+		ISpaceVector from = new SpaceVector(3f, 4f, 5f);
+		ISpaceVector to = new SpaceVector(2f, 4f, 5f);
+		float dist = VectorUtils.getDistance(from, to);
+		
+		assertEquals(1f, dist, 1E-5f);		
+	}
+	
+	@Test
+	public void testGetDistance2() {
+		ISpaceVector from = new SpaceVector(3f, 4f, 5f);
+		ISpaceVector to = new SpaceVector(3f, 2f, 5f);
+		float dist = VectorUtils.getDistance(from, to);
+		
+		assertEquals(2f, dist, 1E-5f);		
+	}
+	
+	@Test
+	public void testGetDistance3() {
+		ISpaceVector from = new SpaceVector(3f, 4f, 2f);
+		ISpaceVector to = new SpaceVector(3f, 4f, 5f);
+		float dist = VectorUtils.getDistance(from, to);
+		
+		assertEquals(3f, dist, 1E-5f);		
+	}
+	
 	/**
 	 * Test method for {@link info.agentviolet.utils.VectorUtils#getAngle(info.agentviolet.model.ISpaceVector, info.agentviolet.model.ISpaceVector)}.
 	 */

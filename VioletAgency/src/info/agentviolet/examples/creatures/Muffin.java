@@ -28,7 +28,7 @@ public class Muffin extends WorldObjectBase implements IConsumable {
 
 	@Override
 	public float getSatisfactionGain() {		
-		return 1f;
+		return 0.25f;
 	}
 
 }

@@ -67,7 +67,7 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 				g.setColor(Color.ORANGE);
 				g.fillRect((int) wObject.getLocation().getPosition().getX(),
 						(int) wObject.getLocation().getPosition().getY() - 12,
-						(int) satisfaction * INT_SMALL_STATUS_BAR_WIDTH,
+						(int) (satisfaction * (float)INT_SMALL_STATUS_BAR_WIDTH),
 						INT_SMALL_STATUS_BAR_HEIGHT);
 			}
 		}

@@ -1,8 +1,6 @@
 package info.agentviolet.examples.creatures;
 
 import info.agentviolet.basicTasks.FeedTask;
-import info.agentviolet.basicTasks.IdleTask;
-import info.agentviolet.impl.ObjectAttributesBase;
 import info.agentviolet.impl.basicNeeds.Feed;
 import info.agentviolet.model.IAgent;
 import info.agentviolet.model.ICognition;

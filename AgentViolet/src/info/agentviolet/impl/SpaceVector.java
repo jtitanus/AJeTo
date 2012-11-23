@@ -5,6 +5,8 @@ import info.agentviolet.utils.VectorUtils;
 
 public class SpaceVector implements ISpaceVector {
 
+	public static final ISpaceVector ORIGIN = new SpaceVector();
+	
 	private float x = 0f;
 	private float y = 0f;
 	private float z = 0f;

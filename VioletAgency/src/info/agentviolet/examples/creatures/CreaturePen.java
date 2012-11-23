@@ -28,6 +28,18 @@ public class CreaturePen extends World {
 		muffin = new Muffin(this);
 		muffin.getLocation().setPosition(new SpaceVector(450f, 400f, 0f));
 		addObject(muffin);
+		
+		muffin = new Muffin(this);
+		muffin.getLocation().setPosition(new SpaceVector(450f, 100f, 0f));
+		addObject(muffin);
+		
+		muffin = new Muffin(this);
+		muffin.getLocation().setPosition(new SpaceVector(250f, 100f, 0f));
+		addObject(muffin);
+		
+		muffin = new Muffin(this);
+		muffin.getLocation().setPosition(new SpaceVector(50f, 200f, 0f));
+		addObject(muffin);
 	}
 			
 }

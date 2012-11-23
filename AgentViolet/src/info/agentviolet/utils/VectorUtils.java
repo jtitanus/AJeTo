@@ -67,6 +67,11 @@ public class VectorUtils {
 		return (float)Math.sqrt(Math.pow((double)vec.getX(), 2d) + Math.pow((double)vec.getY(), 2d) + Math.pow((double)vec.getZ(), 2d));
 	}
 	
+	public static float getDistance(ISpaceVector vec1, ISpaceVector vec2) {
+		ISpaceVector vecDiff = subtract(vec2, vec1);
+		return getVectorLength(vecDiff);
+	}
+	
 	/**
 	 * Returns a world object of the specified type.
 	 * 
@@ -87,7 +92,7 @@ public class VectorUtils {
 			if (retVal == null) {
 				retVal = wo;
 			} else {
-				if(vectorLengthComparator.compare(retVal.getLocation().getPosition(), wo.getLocation().getPosition()) >0) {
+				if(vectorLengthComparator.compare(retVal.getLocation().getPosition(), wo.getLocation().getPosition(), relPos) >0) {
 					retVal = wo;
 				}				
 			}
