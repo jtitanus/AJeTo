@@ -14,6 +14,7 @@ public class ObjectAttributesBase implements IAttributes {
 	public static final int MAX_VELOCITY = 2; // value float
 	public static final int THINKING_TIME = 3; // value long (milliseconds)
 	public static final int MASS = 4; // value float [kg]
+	public static final int SHAPE = 5; // value java.awt.Shape
 
 	protected Object[] attributes;
 

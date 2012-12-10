@@ -20,8 +20,10 @@ public class PhysicalWorld extends WorldBase {
 		super.update();
 		for (IWorldObject worldObject : worldObjects) {
 			worldObject.update();
-			for(IEffect effect : effects) {
-				effect.apply(worldObject);
+			if (!worldObject.isStatic()) {
+				for (IEffect effect : effects) {
+					effect.apply(worldObject);
+				}
 			}
 		}
 	}
