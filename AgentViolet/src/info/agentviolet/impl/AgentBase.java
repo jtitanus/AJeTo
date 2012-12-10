@@ -39,13 +39,13 @@ public class AgentBase extends WorldObjectBase implements IAgent {
 
 	@Override
 	public void update() {
+		super.update();
 		if (cognition != null) {
 			cognition.think(this);
 		}
 		if (task != null) {
 			task.perform(this);
-		}
-		location.update();
+		}		
 		lastUpdateTime = new Date(System.nanoTime());
 	}
 

@@ -10,7 +10,7 @@ public final class Location implements ILocation {
 	private IWorldObject lookingTarget = null;
 	private ISpaceVector pos = SpaceVector.ORIGIN;
 	private ISpaceVector lookPos = null;
-	private ISpaceVector velocity = null;
+	private ISpaceVector velocity = SpaceVector.ORIGIN;
 	private float heading = 0f;
 	private boolean isHeadingLookingInterlocked = true;
 

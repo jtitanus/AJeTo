@@ -18,8 +18,7 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 
 	public void setGraphicContext(Object graphicContext) {
 		this.g = (Graphics2D) graphicContext;
-		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-				RenderingHints.VALUE_ANTIALIAS_ON);
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 	}
 
 	@Override

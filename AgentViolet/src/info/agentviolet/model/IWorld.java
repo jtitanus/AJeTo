@@ -10,6 +10,6 @@ public interface IWorld {
 
 	void update();
 	
-	IAttributes getAttributes();
+	IAttributes getAttributes();		
 
 }

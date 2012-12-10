@@ -11,7 +11,7 @@ public abstract class WorldObjectBase implements IWorldObject {
 	protected ILocation location = new Location();
 	protected IAttributes attributes;
 	
-	private boolean isActive = true;	
+	protected boolean isActive = true;	
 	
     @Override
     public IWorld getWorld() {
@@ -22,9 +22,10 @@ public abstract class WorldObjectBase implements IWorldObject {
 	public ILocation getLocation() {	
 		return location;
 	}
-
+	
 	@Override
 	public void update() {
+		location.update();
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package info.agentviolet.world;
+package info.agentviolet.impl;
 
 import info.agentviolet.model.IAttributes;
 import info.agentviolet.utils.AttributesUtils;
@@ -7,8 +7,7 @@ public class WorldAttributesBase implements IAttributes {
 
 	// Attributes definition
 	public static final int IS_2D = 0; // value boolean
-	public static final int DELTA_TIME = 1; // value int in milliseconds - the time step of a world update
-	public static final int GRAVITY = 2; // value float
+	public static final int DELTA_TIME = 1; // value int in milliseconds - the time step of a world update	
 	
 	protected Object[] attributes;
 
@@ -17,8 +16,7 @@ public class WorldAttributesBase implements IAttributes {
 
 		// set default values
 		setAttribute(IS_2D, true);
-		setAttribute(DELTA_TIME, 30);
-		setAttribute(GRAVITY, 9.81f);
+		setAttribute(DELTA_TIME, 15);
 	}
 
 	@Override

@@ -12,10 +12,10 @@ public class WorldBase implements IWorld {
 
 	protected IAttributes attributes;
 	
-	private List<IWorldObject> worldObjects = new ArrayList<IWorldObject>();
+	protected List<IWorldObject> worldObjects = new ArrayList<IWorldObject>();
 	
 	public WorldBase() {
-		attributes = new ObjectAttributesBase();
+		attributes = new WorldAttributesBase();
 	}
 	
 	@Override
