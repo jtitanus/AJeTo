@@ -5,7 +5,7 @@ package info.agentviolet.model;
  * Defines an extensible storage of world object attributes.
  *
  */
-public interface IObjectAttributes {
+public interface IAttributes {
 
 	/***
 	 * Integer index of the attribute. Should be used with defined public static final int values.

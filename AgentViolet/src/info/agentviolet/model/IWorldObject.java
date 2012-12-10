@@ -6,7 +6,7 @@ public interface IWorldObject {
 	
 	ILocation getLocation();
 	
-	IObjectAttributes getAttributes();
+	IAttributes getAttributes();
 
 	void update();
 	

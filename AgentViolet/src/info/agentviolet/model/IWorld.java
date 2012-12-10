@@ -9,5 +9,7 @@ public interface IWorld {
 	void addObject(IWorldObject worldObject);
 
 	void update();
+	
+	IAttributes getAttributes();
 
 }

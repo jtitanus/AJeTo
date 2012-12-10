@@ -1,7 +1,7 @@
 package info.agentviolet.impl;
 
 import info.agentviolet.model.ILocation;
-import info.agentviolet.model.IObjectAttributes;
+import info.agentviolet.model.IAttributes;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;
 
@@ -9,7 +9,7 @@ public abstract class WorldObjectBase implements IWorldObject {
 
 	protected IWorld world;
 	protected ILocation location = new Location();
-	protected IObjectAttributes attributes;
+	protected IAttributes attributes;
 	
 	private boolean isActive = true;	
 	
@@ -41,7 +41,7 @@ public abstract class WorldObjectBase implements IWorldObject {
 	}
 
 	@Override
-	public IObjectAttributes getAttributes() {
+	public IAttributes getAttributes() {
 		return attributes;
 	}
 

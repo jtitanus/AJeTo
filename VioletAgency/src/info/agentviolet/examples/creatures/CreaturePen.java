@@ -1,8 +1,8 @@
 package info.agentviolet.examples.creatures;
 import info.agentviolet.impl.SpaceVector;
-import info.agentviolet.impl.World;
+import info.agentviolet.impl.WorldBase;
 
-public class CreaturePen extends World {
+public class CreaturePen extends WorldBase {
 
 	public CreaturePen () {
 		// Creatures
