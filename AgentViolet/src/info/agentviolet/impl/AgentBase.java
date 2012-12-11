@@ -10,19 +10,14 @@ import info.agentviolet.model.ITask;
 public class AgentBase extends WorldObjectBase implements IAgent {
 
 	protected INeeds needs = null;
-	protected ICognition cognition = null;
-	protected Date lastUpdateTime = new Date();
+	protected ICognition cognition = null;	
 	protected ITask task = null;
 
 	@Override
 	public boolean isStatic() {
 		return false;
 	}
-
-	@Override
-	public Date getLastUpdateTime() {
-		return lastUpdateTime;
-	}
+	
 
 	public ICognition getCognition() {
 		return cognition;

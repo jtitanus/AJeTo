@@ -1,12 +1,12 @@
 package info.agentviolet.ui;
 
-import info.agentviolet.examples.creatures.CreatureAgencyPresentationContext;
 import info.agentviolet.impl.SpaceVector;
 import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;
 import info.agentviolet.world.PhysicalWorld;
 import info.agentviolet.world.WorldTime;
+import info.agentviolet.world.basicObjects.FixedBox;
 import info.agentviolet.world.basicObjects.Rock;
 
 public class PhysicalCabinet {
@@ -23,6 +23,12 @@ public class PhysicalCabinet {
 		IWorldObject rock = new Rock(world);
 		rock.getLocation().setPosition(new SpaceVector(100f,100f,0f));		
 		world.addObject(rock);
+		
+		IWorldObject box = new FixedBox(world);
+		box.getLocation().setPosition(new SpaceVector(50f,300f,0f));		
+		world.addObject(box);
+		
+		
 		
 		worldTime.start();
 		

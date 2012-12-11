@@ -1,7 +1,5 @@
 package info.agentviolet.model;
 
-import java.util.Date;
-
 /***
  * Agent is a world object, that can reflect on his own state and can perform a
  * task to satisfy its needs.
@@ -17,8 +15,6 @@ public interface IAgent extends IWorldObject {
 
 	ITask getTask();
 
-	void setTask(ITask task);
-
-	Date getLastUpdateTime();
+	void setTask(ITask task);	
 
 }

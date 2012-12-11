@@ -1,5 +1,7 @@
 package info.agentviolet.model;
 
+import java.util.Date;
+
 public interface IWorldObject {
 
 	IWorld getWorld();
@@ -15,4 +17,6 @@ public interface IWorldObject {
 	boolean isActive();
 	
 	void setActive(boolean isActive);
+	
+	Date getLastUpdateTime();
 }

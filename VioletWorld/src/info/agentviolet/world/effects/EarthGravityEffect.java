@@ -9,10 +9,12 @@ import info.agentviolet.world.IEffect;
 public class EarthGravityEffect implements IEffect {
 
 	@Override
-	public void apply(IWorldObject worldObject) {						
+	public void apply(IWorldObject worldObject) {
+		float verticalV = (float) worldObject.getAttributes().getAttribute(ObjectAttributesBase.MASS) * 9.81f / (1000f / (int) worldObject.getWorld().getAttributes().getAttribute(WorldAttributesBase.UPDATE_TIME));
+		
 		worldObject.getLocation().setVelocity(new SpaceVector(
 				worldObject.getLocation().getVelocity().getX(),
-				worldObject.getLocation().getVelocity().getY() + (float) worldObject.getAttributes().getAttribute(ObjectAttributesBase.MASS) * 9.81f / (1000f / (int) worldObject.getWorld().getAttributes().getAttribute(WorldAttributesBase.DELTA_TIME)),
+				worldObject.getLocation().getVelocity().getY() + verticalV,
 				worldObject.getLocation().getVelocity().getZ()));
 	}
 

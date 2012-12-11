@@ -23,7 +23,7 @@ public class WorldTime extends Thread {
 			while (isRunning) {
 				world.update();
 				window.repaint();
-				this.wait((int) world.getAttributes().getAttribute(WorldAttributesBase.DELTA_TIME));
+				this.wait((int) world.getAttributes().getAttribute(WorldAttributesBase.UPDATE_TIME));
 			}
 		} catch (InterruptedException e) {
 			isRunning = false;

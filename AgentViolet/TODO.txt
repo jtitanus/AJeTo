@@ -3,3 +3,7 @@
 - Loitering?
 - Health
 - Eat other agents when starving?
+
+Physical environment
+- world time independent from screen update rate
+- precise collisions
