@@ -10,6 +10,7 @@ public class LighthouseClient {
 	/**
 	 * @param args
 	 */
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		// declaration section:
 		// smtpClient: our client socket

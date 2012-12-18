@@ -10,7 +10,7 @@ public class EarthGravityEffect implements IEffect {
 
 	@Override
 	public void apply(IWorldObject worldObject) {
-		float verticalV = (float) worldObject.getAttributes().getAttribute(ObjectAttributesBase.MASS) * 9.81f / (1000f / (int) worldObject.getWorld().getAttributes().getAttribute(WorldAttributesBase.UPDATE_TIME));
+		float verticalV = (float) worldObject.getAttributes().getAttribute(ObjectAttributesBase.MASS) * 9.81f / (1000f / (float)((int) worldObject.getWorld().getAttributes().getAttribute(WorldAttributesBase.UPDATE_TIME)));
 		
 		worldObject.getLocation().setVelocity(new SpaceVector(
 				worldObject.getLocation().getVelocity().getX(),

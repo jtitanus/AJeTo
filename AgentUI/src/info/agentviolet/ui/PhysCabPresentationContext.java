@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Rectangle2D;
 import info.agentviolet.impl.ObjectAttributesBase;
 import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
@@ -37,18 +35,7 @@ public class PhysCabPresentationContext implements IPresentationContext {
 
 			g.setColor(Color.DARK_GRAY);
 
-			Shape shape = (Shape) wObject.getAttributes().getAttribute(ObjectAttributesBase.SHAPE);			
-			// set coordinates
-			if (shape instanceof Ellipse2D.Float) {
-				((Ellipse2D.Float) shape).x = wObject.getLocation().getPosition().getX();
-				((Ellipse2D.Float) shape).y = wObject.getLocation().getPosition().getY();
-			} else if (shape instanceof Rectangle2D.Float) {
-				((Rectangle2D.Float) shape).x = wObject.getLocation().getPosition().getX();
-				((Rectangle2D.Float) shape).y = wObject.getLocation().getPosition().getY();
-			}
-			else {
-				System.out.println("Unknown shape type. [" + shape.getClass().getName() + "]");
-			}
+			Shape shape = (Shape) wObject.getAttributes().getAttribute(ObjectAttributesBase.SHAPE);						
 			g.fill(shape);			
 		}
 //		bg.dispose();

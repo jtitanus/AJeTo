@@ -9,11 +9,11 @@ public class WorldTime extends Thread {
 
 	private final IWorld world;
 	private final JFrame window;
-	private boolean isRunning = true;
-
+	private boolean isRunning = true;	
+	
 	public WorldTime(final IWorld world, final JFrame window) {
 		this.world = world;
-		this.window = window;
+		this.window = window;		
 	}
 
 	@Override
@@ -21,9 +21,9 @@ public class WorldTime extends Thread {
 		super.run();
 		try {
 			while (isRunning) {
+				this.wait((int) world.getAttributes().getAttribute(WorldAttributesBase.UPDATE_TIME));
 				world.update();
 				window.repaint();
-				this.wait((int) world.getAttributes().getAttribute(WorldAttributesBase.UPDATE_TIME));
 			}
 		} catch (InterruptedException e) {
 			isRunning = false;
@@ -33,4 +33,5 @@ public class WorldTime extends Thread {
 	public void exit() {
 		isRunning = false;
 	}
+		
 }

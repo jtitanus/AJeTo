@@ -11,7 +11,7 @@ public class Rock extends WorldObjectBase {
 	public Rock(IWorld world) {
 		attributes = new ObjectAttributesBase();
 		this.world = world;
-		Ellipse2D.Float shape = new Ellipse2D.Float();
+		Ellipse2D.Float shape = new Ellipse2D.Float();		
 		shape.height = 25f;
 		shape.width = 25f;
 		attributes.setAttribute(ObjectAttributesBase.SHAPE, shape);
