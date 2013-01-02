@@ -7,6 +7,7 @@ import info.agentviolet.model.IAgent;
 import info.agentviolet.model.IShape;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.model.objectAttributes.IConsumable;
+import info.agentviolet.world.ShapeBase;
 
 public class Muffin extends WorldObjectBase implements IConsumable {
 
@@ -45,7 +46,7 @@ public class Muffin extends WorldObjectBase implements IConsumable {
 		return muffinShape;
 	}
 
-	private class MuffinShape implements IShape {
+	private class MuffinShape extends ShapeBase implements IShape {
 
 		private Ellipse2D.Float shape = new Ellipse2D.Float();
 

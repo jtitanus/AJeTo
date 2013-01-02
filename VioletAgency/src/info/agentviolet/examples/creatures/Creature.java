@@ -4,6 +4,7 @@ import java.awt.geom.Ellipse2D;
 import info.agentviolet.impl.AgentBase;
 import info.agentviolet.model.IShape;
 import info.agentviolet.model.IWorld;
+import info.agentviolet.world.ShapeBase;
 
 public class Creature extends AgentBase {
 
@@ -31,7 +32,7 @@ public class Creature extends AgentBase {
 		return creatureShape;
 	}
 
-	private class CreatureShape implements IShape {
+	private class CreatureShape extends ShapeBase implements IShape {
 
 		Ellipse2D.Float shape = new Ellipse2D.Float();
 
@@ -43,7 +44,6 @@ public class Creature extends AgentBase {
 		@Override
 		public Class<?> getType() {
 			return Ellipse2D.Float.class;
-		}
-
+		}		
 	}
 }

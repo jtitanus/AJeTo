@@ -6,6 +6,7 @@ import info.agentviolet.impl.ObjectAttributesBase;
 import info.agentviolet.impl.WorldObjectBase;
 import info.agentviolet.model.IShape;
 import info.agentviolet.model.IWorld;
+import info.agentviolet.world.ShapeBase;
 
 public class FixedBox extends WorldObjectBase{
 
@@ -31,7 +32,7 @@ public class FixedBox extends WorldObjectBase{
 		return shape;
 	}
 
-	private class FixedBoxShape implements IShape {
+	private class FixedBoxShape extends ShapeBase implements IShape {
 
 		Rectangle2D.Float shape = new Rectangle2D.Float();
 		

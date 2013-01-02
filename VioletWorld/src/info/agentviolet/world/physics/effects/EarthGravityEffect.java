@@ -1,4 +1,4 @@
-package info.agentviolet.world.effects;
+package info.agentviolet.world.physics.effects;
 
 import info.agentviolet.impl.ObjectAttributesBase;
 import info.agentviolet.impl.SpaceVector;

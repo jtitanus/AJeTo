@@ -6,6 +6,7 @@ import info.agentviolet.impl.ObjectAttributesBase;
 import info.agentviolet.impl.WorldObjectBase;
 import info.agentviolet.model.IShape;
 import info.agentviolet.model.IWorld;
+import info.agentviolet.world.ShapeBase;
 
 public class Rock extends WorldObjectBase {
 	
@@ -30,7 +31,7 @@ public class Rock extends WorldObjectBase {
 		return rockShape;
 	}
 
-	private class RockShape implements IShape {
+	private class RockShape extends ShapeBase implements IShape {
 
 		Ellipse2D.Float shape = new Ellipse2D.Float();
 		
