@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
-import info.agentviolet.impl.ObjectAttributesBase;
 import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;
@@ -35,7 +34,7 @@ public class PhysCabPresentationContext implements IPresentationContext {
 
 			g.setColor(Color.DARK_GRAY);
 
-			Shape shape = (Shape) wObject.getAttributes().getAttribute(ObjectAttributesBase.SHAPE);						
+			Shape shape = (Shape) wObject.getShape().getGraphicShape();						
 			g.fill(shape);			
 		}
 //		bg.dispose();

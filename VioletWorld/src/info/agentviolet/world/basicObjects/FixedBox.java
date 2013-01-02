@@ -4,17 +4,19 @@ import java.awt.geom.Rectangle2D;
 
 import info.agentviolet.impl.ObjectAttributesBase;
 import info.agentviolet.impl.WorldObjectBase;
+import info.agentviolet.model.IShape;
 import info.agentviolet.model.IWorld;
 
 public class FixedBox extends WorldObjectBase{
 
-	public FixedBox(IWorld world) {
+	private FixedBoxShape shape = new FixedBoxShape();
+	
+	public FixedBox(IWorld world, float width, float height) {
 		attributes = new ObjectAttributesBase();
 		this.world = world;
-		Rectangle2D.Float shape = new Rectangle2D.Float();
-		shape.height = 25f;
-		shape.width = 250f;
-		attributes.setAttribute(ObjectAttributesBase.SHAPE, shape);
+
+		shape.shape.height = height;
+		shape.shape.width = width;		
 	}
 	
 	@Override
@@ -22,4 +24,25 @@ public class FixedBox extends WorldObjectBase{
 		return true;
 	}
 
+	@Override
+	public IShape getShape() {
+		shape.shape.x = getLocation().getPosition().getX();
+		shape.shape.y = getLocation().getPosition().getY();
+		return shape;
+	}
+
+	private class FixedBoxShape implements IShape {
+
+		Rectangle2D.Float shape = new Rectangle2D.Float();
+		
+		@Override
+		public Object getGraphicShape() {			
+			return shape;
+		}
+
+		@Override
+		public Class<?> getType() {
+			return Rectangle2D.Float.class;
+		}
+	}
 }

@@ -9,6 +9,7 @@ import info.agentviolet.model.IWorldObject;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.Shape;
 
 public class CreatureAgencyPresentationContext implements IPresentationContext {
 
@@ -34,9 +35,7 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 				} else if (wObject instanceof Muffin) {
 					g.setColor(new Color(140, 70, 10)); // brown
 				}
-				g.fillOval((int) wObject.getLocation().getPosition().getX(),
-						(int) wObject.getLocation().getPosition().getY(),
-						INT_SMALL_STATUS_BAR_WIDTH,INT_SMALL_STATUS_BAR_WIDTH);
+				g.fill((Shape)wObject.getShape().getGraphicShape());
 			}
 		}
 

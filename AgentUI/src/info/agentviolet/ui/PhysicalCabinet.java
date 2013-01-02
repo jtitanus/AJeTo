@@ -20,11 +20,11 @@ public class PhysicalCabinet {
 		final DrawingWindow window = new DrawingWindow( "Rocky", world, presentationContext);
 		final WorldTime worldTime = new WorldTime(world, window);
 		
-		IWorldObject rock = new Rock(world);
+		IWorldObject rock = new Rock(world, 25f,25f);
 		rock.getLocation().setPosition(new SpaceVector(100f,100f,0f));		
 		world.addObject(rock);
 		
-		IWorldObject box = new FixedBox(world);
+		IWorldObject box = new FixedBox(world, 250f, 30f);
 		box.getLocation().setPosition(new SpaceVector(50f,300f,0f));		
 		world.addObject(box);
 		

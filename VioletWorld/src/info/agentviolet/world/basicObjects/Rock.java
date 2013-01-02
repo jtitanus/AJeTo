@@ -4,17 +4,18 @@ import java.awt.geom.Ellipse2D;
 
 import info.agentviolet.impl.ObjectAttributesBase;
 import info.agentviolet.impl.WorldObjectBase;
+import info.agentviolet.model.IShape;
 import info.agentviolet.model.IWorld;
 
 public class Rock extends WorldObjectBase {
 	
-	public Rock(IWorld world) {
+	private RockShape rockShape = new RockShape();
+	
+	public Rock(IWorld world, float width, float height) {
 		attributes = new ObjectAttributesBase();
 		this.world = world;
-		Ellipse2D.Float shape = new Ellipse2D.Float();		
-		shape.height = 25f;
-		shape.width = 25f;
-		attributes.setAttribute(ObjectAttributesBase.SHAPE, shape);
+		rockShape.shape.height = height;
+		rockShape.shape.width = width;
 	}
 	
 	@Override
@@ -22,4 +23,25 @@ public class Rock extends WorldObjectBase {
 		return false;
 	}
 
+	@Override
+	public IShape getShape() {
+		rockShape.shape.x = getLocation().getPosition().getX();
+		rockShape.shape.y = getLocation().getPosition().getY();
+		return rockShape;
+	}
+
+	private class RockShape implements IShape {
+
+		Ellipse2D.Float shape = new Ellipse2D.Float();
+		
+		@Override
+		public Object getGraphicShape() {		
+			return shape;
+		}
+
+		@Override
+		public Class<?> getType() {
+			return Ellipse2D.Float.class;
+		}		
+	}
 }

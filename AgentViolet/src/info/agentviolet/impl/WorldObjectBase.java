@@ -1,7 +1,5 @@
 package info.agentviolet.impl;
 
-import java.util.Date;
-
 import info.agentviolet.model.ILocation;
 import info.agentviolet.model.IAttributes;
 import info.agentviolet.model.IWorld;
@@ -12,7 +10,7 @@ public abstract class WorldObjectBase implements IWorldObject {
 	protected IWorld world;
 	protected ILocation location = new Location();
 	protected IAttributes attributes;
-	protected Date lastUpdateTime = new Date();	
+	protected long lastUpdateTime = System.nanoTime();	
 	protected boolean isActive = true;	
 	
     @Override
@@ -28,7 +26,7 @@ public abstract class WorldObjectBase implements IWorldObject {
 	@Override
 	public void update() {
 		location.update();
-		lastUpdateTime = new Date(System.nanoTime());
+		lastUpdateTime = System.nanoTime();
 	}
 
 	@Override
@@ -50,8 +48,8 @@ public abstract class WorldObjectBase implements IWorldObject {
 	}
 	
 	@Override
-	public Date getLastUpdateTime() {
+	public long getLastUpdateTime() {
 		return lastUpdateTime;
-	}
+	}	
 
 }

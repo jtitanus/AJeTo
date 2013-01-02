@@ -9,20 +9,21 @@ public class WorldTime extends Thread {
 
 	private final IWorld world;
 	private final JFrame window;
-	private boolean isRunning = true;	
+	private boolean isRunning = true;
+	private PhysicsThread physicsThread;
 	
 	public WorldTime(final IWorld world, final JFrame window) {
 		this.world = world;
-		this.window = window;		
+		this.window = window;
+		physicsThread = new PhysicsThread(world);		
 	}
 
 	@Override
 	public synchronized void run() {
 		super.run();
 		try {
-			while (isRunning) {
+			while (isRunning) {				
 				this.wait((int) world.getAttributes().getAttribute(WorldAttributesBase.UPDATE_TIME));
-				world.update();
 				window.repaint();
 			}
 		} catch (InterruptedException e) {
@@ -31,7 +32,38 @@ public class WorldTime extends Thread {
 	}
 	
 	public void exit() {
+		physicsThread.exit();
 		isRunning = false;
 	}
 		
+	
+	private class PhysicsThread extends Thread {
+
+		private final IWorld world;
+		private boolean isRunning = true;	
+		
+		public PhysicsThread(final IWorld world) {
+			super();
+			this.world = world;
+			start();
+		}
+
+		@Override
+		public synchronized void run() {
+			super.run();
+			try {
+				while (isRunning) {
+					world.update();
+					this.wait((int) world.getAttributes().getAttribute(WorldAttributesBase.UPDATE_TIME));
+				}
+			} catch (InterruptedException e) {
+				isRunning = false;
+			}
+		}
+		
+		
+		public void exit() {
+			isRunning = false;
+		}
+	}
 }
