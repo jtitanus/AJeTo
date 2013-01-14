@@ -1,7 +1,7 @@
 package info.agentviolet.ui;
 
-import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
+import info.agentviolet.view.IPresentationContext;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -11,13 +11,13 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-class DrawingWindow extends JFrame {
+public class DrawingWindow extends JFrame {
 		
 	private static final long serialVersionUID = -4019454661296013001L;
 	private IWorld world;
 	private IPresentationContext context;
 
-	DrawingWindow(String title, final IWorld world, final IPresentationContext presentationContext) {
+	public DrawingWindow(String title, final IWorld world, final IPresentationContext presentationContext) {
 		super(title);
 		this.world = world;
 		context = presentationContext;

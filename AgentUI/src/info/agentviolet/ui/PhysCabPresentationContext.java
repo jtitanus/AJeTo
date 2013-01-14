@@ -4,13 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
-import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;
 
-public class PhysCabPresentationContext implements IPresentationContext {
-
-	private Graphics2D g;
+public class PhysCabPresentationContext extends PresentationContextBase {
+	
 //	private BufferedImage buffi = null;
 
 	@Override

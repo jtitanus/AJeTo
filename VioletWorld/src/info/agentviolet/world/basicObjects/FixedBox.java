@@ -10,14 +10,14 @@ import info.agentviolet.world.ShapeBase;
 
 public class FixedBox extends WorldObjectBase{
 
-	private FixedBoxShape shape = new FixedBoxShape();
+	private FixedBoxShape fixedBoxShape = new FixedBoxShape();
 	
 	public FixedBox(IWorld world, float width, float height) {
 		attributes = new ObjectAttributesBase();
 		this.world = world;
 
-		shape.shape.height = height;
-		shape.shape.width = width;		
+		fixedBoxShape.shape.height = height;
+		fixedBoxShape.shape.width = width;		
 	}
 	
 	@Override
@@ -27,9 +27,9 @@ public class FixedBox extends WorldObjectBase{
 
 	@Override
 	public IShape getShape() {
-		shape.shape.x = getLocation().getPosition().getX();
-		shape.shape.y = getLocation().getPosition().getY();
-		return shape;
+		fixedBoxShape.shape.x = getLocation().getPosition().getX();
+		fixedBoxShape.shape.y = getLocation().getPosition().getY();
+		return fixedBoxShape;
 	}
 
 	private class FixedBoxShape extends ShapeBase implements IShape {

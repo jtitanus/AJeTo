@@ -16,7 +16,7 @@ public class WorldAttributesBase implements IAttributes {
 
 		// set default values
 		setAttribute(IS_2D, true);
-		setAttribute(UPDATE_TIME, 15);
+		setAttribute(UPDATE_TIME, 16);
 	}
 
 	@Override

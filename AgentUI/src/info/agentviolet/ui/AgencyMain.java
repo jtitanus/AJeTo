@@ -2,8 +2,8 @@ package info.agentviolet.ui;
 
 import info.agentviolet.examples.creatures.CreatureAgencyPresentationContext;
 import info.agentviolet.examples.creatures.CreaturePen;
-import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
+import info.agentviolet.view.IPresentationContext;
 import info.agentviolet.world.WorldTime;
 
 public class AgencyMain {

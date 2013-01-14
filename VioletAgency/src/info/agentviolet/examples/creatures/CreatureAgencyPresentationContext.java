@@ -2,9 +2,9 @@ package info.agentviolet.examples.creatures;
 
 import info.agentviolet.impl.ObjectAttributesBase;
 import info.agentviolet.model.IAgent;
-import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;
+import info.agentviolet.view.IPresentationContext;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -89,6 +89,11 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 						INT_SMALL_STATUS_BAR_HEIGHT);
 			}
 		}
+	}
+
+	@Override
+	public Object getGraphicContext() {
+		return g;
 	}
 
 }

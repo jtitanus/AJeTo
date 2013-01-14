@@ -1,9 +1,9 @@
 package info.agentviolet.ui;
 
 import info.agentviolet.impl.SpaceVector;
-import info.agentviolet.model.IPresentationContext;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;
+import info.agentviolet.view.IPresentationContext;
 import info.agentviolet.world.PhysicalWorld;
 import info.agentviolet.world.WorldTime;
 import info.agentviolet.world.basicObjects.FixedBox;

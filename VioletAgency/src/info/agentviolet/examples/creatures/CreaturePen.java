@@ -49,8 +49,7 @@ public class CreaturePen extends WorldBase {
 		
 		muffin = new Muffin(this);
 		muffin.getLocation().setPosition(new SpaceVector(300f, 460f, 0f));
-		addObject(muffin);
-		addObject(muffin);
+		addObject(muffin);		
 	}
 			
 }
