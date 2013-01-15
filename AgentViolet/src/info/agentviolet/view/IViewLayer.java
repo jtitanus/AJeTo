@@ -6,6 +6,8 @@ import info.agentviolet.model.IWorldObject;
 
 public interface IViewLayer {
 	
+	void setViewLayerPresentationContext(IViewLayerPresentationContext presentationContext);
+	
 	IViewLayerPresentationContext getViewLayerPresentationContext();
 	
 	void update();
@@ -15,5 +17,7 @@ public interface IViewLayer {
 	IWorldObject addObject(IWorldObject worldObject);
 	
 	Collection<IWorldObject> getWorldObjects();
+
+	boolean isStatic();
 	
 }

@@ -8,29 +8,36 @@ import info.agentviolet.model.IAttributes;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;
 import info.agentviolet.view.IViewLayer;
+import info.agentviolet.view.ViewLayerBase;
 
-public class WorldBase implements IWorld {
+public abstract class WorldBase implements IWorld {
 
+	protected static final int DEFAULT_LAYER = 0;
 	protected IAttributes attributes;
+	protected final List<IViewLayer> viewLayers;
 	protected final List<IWorldObject> worldObjects = new ArrayList<IWorldObject>();
-	protected final List<IViewLayer> viewLayers = new ArrayList<IViewLayer>();
 
 	public WorldBase() {
 		attributes = new WorldAttributesBase();
+		viewLayers = initViewLayers();
+	}
+
+	protected List<IViewLayer> initViewLayers() {
+		List<IViewLayer> retList = new ArrayList<IViewLayer>(DEFAULT_LAYER+1);
+		for (int i = 0; i < DEFAULT_LAYER+1; i++) {
+			retList.add(new ViewLayerBase(null));
+		}
+		return retList;
 	}
 
 	@Override
 	public void update() {
-		for (IWorldObject worldObject : worldObjects) {
-			if (worldObject.isActive()) {
-				worldObject.update();
-			}
-		}
-
 		for (IViewLayer viewLayer : viewLayers) {
-			for (IWorldObject worldObject : viewLayer.getWorldObjects()) {
-				if (worldObject.isActive()) {
-					worldObject.update();
+			if (viewLayer != null && !viewLayer.isStatic()) {
+				for (IWorldObject worldObject : viewLayer.getWorldObjects()) {
+					if (worldObject.isActive()) {
+						worldObject.update();
+					}
 				}
 			}
 		}
@@ -38,6 +45,13 @@ public class WorldBase implements IWorld {
 
 	@Override
 	public void addObject(IWorldObject worldObject) {
+		viewLayers.get(DEFAULT_LAYER).addObject(worldObject);
+		worldObjects.add(worldObject);
+	}
+
+	@Override
+	public void addObjectToLayer(int layer, IWorldObject worldObject) {
+		viewLayers.get(layer).addObject(worldObject);
 		worldObjects.add(worldObject);
 	}
 

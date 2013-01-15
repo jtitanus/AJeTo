@@ -17,7 +17,7 @@ public class HyperspaceUI {
 		final HyperspaceWorld world = new HyperspaceWorld();
 		
 		// world init
-		world.getViewLayers().add(new StarfieldViewLayer(new ParticleSystemViewLayerPresentationContextBase(hyperspaceUiContext), 250));
+		world.getViewLayers().add(new StarfieldViewLayer(new ParticleSystemViewLayerPresentationContextBase(hyperspaceUiContext), 1000));
 		
 		DrawingWindow window = new DrawingWindow("Hyperspace", world, hyperspaceUiContext);
 		WorldTime worldTime = new WorldTime(world, window);

@@ -1,4 +1,5 @@
 package info.agentviolet.examples.creatures;
+
 import info.agentviolet.impl.SpaceVector;
 import info.agentviolet.impl.WorldBase;
 

@@ -4,6 +4,7 @@ import info.agentviolet.examples.creatures.CreatureAgencyPresentationContext;
 import info.agentviolet.examples.creatures.CreaturePen;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.view.IPresentationContext;
+import info.agentviolet.view.IViewLayerPresentationContext;
 import info.agentviolet.world.WorldTime;
 
 public class AgencyMain {
@@ -13,9 +14,10 @@ public class AgencyMain {
 	 */
 	public static void main(String[] args) {
 		final IWorld world = new CreaturePen();
-		final IPresentationContext presentationContext = new CreatureAgencyPresentationContext();
-		final DrawingWindow window = new DrawingWindow( "Agency", world, presentationContext);
+		final IViewLayerPresentationContext presentationContext = new CreatureAgencyPresentationContext();
+		final DrawingWindow window = new DrawingWindow( "Agency", world, (IPresentationContext)presentationContext);
 		final WorldTime worldTime = new WorldTime(world, window);
+		world.getViewLayers().get(0).setViewLayerPresentationContext(presentationContext);
 		
 		worldTime.start();
 		

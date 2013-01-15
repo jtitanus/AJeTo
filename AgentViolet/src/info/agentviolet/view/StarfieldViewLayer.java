@@ -5,13 +5,11 @@ import info.agentviolet.model.objects.StarfieldParticleSystem;
 public class StarfieldViewLayer extends ViewLayerBase {
 
 	private StarfieldParticleSystem starfield;
-	
+
 	public StarfieldViewLayer(IViewLayerPresentationContext presentationContext, int starsCount) {
-		starfield=new StarfieldParticleSystem(starsCount);
-		this.presentationContext = presentationContext;
+		super(presentationContext);
+		starfield = new StarfieldParticleSystem(starsCount);		
 		this.addObject(starfield);
 	}
 
-	
-	
 }

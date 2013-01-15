@@ -5,13 +5,15 @@ import info.agentviolet.model.IAgent;
 import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;
 import info.agentviolet.view.IPresentationContext;
+import info.agentviolet.view.IViewLayer;
+import info.agentviolet.view.IViewLayerPresentationContext;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 
-public class CreatureAgencyPresentationContext implements IPresentationContext {
+public class CreatureAgencyPresentationContext implements IPresentationContext, IViewLayerPresentationContext {
 
 	private static final int INT_SMALL_STATUS_BAR_HEIGHT = 3;
 	private static final int INT_SMALL_STATUS_BAR_WIDTH = 24;
@@ -24,11 +26,21 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 
 	@Override
 	public void draw(IWorld world) {
+		for(IViewLayer layer: world.getViewLayers()) {
+			draw(layer);
+		}		
+	}
 
+	@Override
+	public Object getGraphicContext() {
+		return g;
+	}
+
+	@Override
+	public void draw(IViewLayer layer) {
 		g.setColor(new Color(220, 250, 210));
 		g.fillRect(0, 0, g.getDeviceConfiguration().getBounds().width, g.getDeviceConfiguration().getBounds().height);
-		//
-		for (IWorldObject wObject : world.getWorldObjects()) {
+		for (IWorldObject wObject : layer.getWorldObjects()) {
 			if (wObject.isActive()) {
 				if (wObject instanceof Creature) {
 					g.setColor(Color.GREEN);
@@ -38,9 +50,9 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 				g.fill((Shape)wObject.getShape().getGraphicShape());
 			}
 		}
-
+		
 		// looking directions
-		for (IWorldObject wObject : world.getWorldObjects()) {
+		for (IWorldObject wObject : layer.getWorldObjects()) {
 			if (wObject.isActive() && !wObject.isStatic()) {			
 				g.setColor(Color.LIGHT_GRAY);
 				if (wObject.getLocation().getLookingPosition() != null) {
@@ -56,7 +68,7 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 		}
 		
 		// visualize needs
-		for (IWorldObject wObject : world.getWorldObjects()) {
+		for (IWorldObject wObject : layer.getWorldObjects()) {
 			if (wObject instanceof IAgent && wObject.isActive()
 					&& !wObject.isStatic()) {
 				float satisfaction = ((IAgent) wObject).getNeeds().getOverallSatisfactionLevel();
@@ -73,7 +85,7 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 		}
 		
 		// visualize hit points
-		for (IWorldObject wObject : world.getWorldObjects()) {
+		for (IWorldObject wObject : layer.getWorldObjects()) {
 			if (wObject instanceof IAgent && wObject.isActive()
 					&& !wObject.isStatic()) {
 				float maxHitpoints = (float) wObject.getAttributes().getAttribute(ObjectAttributesBase.MAX_HITPOINTS);
@@ -89,11 +101,7 @@ public class CreatureAgencyPresentationContext implements IPresentationContext {
 						INT_SMALL_STATUS_BAR_HEIGHT);
 			}
 		}
-	}
-
-	@Override
-	public Object getGraphicContext() {
-		return g;
+		
 	}
 
 }

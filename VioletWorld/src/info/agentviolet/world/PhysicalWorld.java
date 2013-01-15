@@ -1,6 +1,7 @@
 package info.agentviolet.world;
 
 import java.awt.Shape;
+
 import info.agentviolet.impl.SpaceVector;
 import info.agentviolet.impl.WorldBase;
 import info.agentviolet.model.ISpaceVector;
@@ -15,7 +16,7 @@ public class PhysicalWorld extends WorldBase {
 		super();
 		effects = new IEffect[1];
 		effects[0] = new EarthGravityEffect();
-	}
+	}	
 
 	@Override
 	public void update() {

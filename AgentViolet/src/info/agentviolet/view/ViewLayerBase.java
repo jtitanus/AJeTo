@@ -6,11 +6,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public abstract class ViewLayerBase implements IViewLayer {
+public class ViewLayerBase implements IViewLayer {
 
 	protected final List<IWorldObject> worldObjects = new ArrayList<IWorldObject>();
 	protected IViewLayerPresentationContext presentationContext;
 		
+	public ViewLayerBase(IViewLayerPresentationContext presentationContext) {
+		this.presentationContext = presentationContext;
+	}
+	
 	@Override
 	public IWorldObject addObject(IWorldObject worldObject) {
 		worldObjects.add(worldObject);
@@ -38,5 +42,16 @@ public abstract class ViewLayerBase implements IViewLayer {
 	public IViewLayerPresentationContext getViewLayerPresentationContext() {		
 		return presentationContext;
 	}
+	
+	@Override
+	public void setViewLayerPresentationContext(IViewLayerPresentationContext presentationContext) {
+		this.presentationContext = presentationContext;
+	}
+
+	@Override
+	public boolean isStatic() {
+		return false;
+	}
+
 
 }

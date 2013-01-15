@@ -11,7 +11,6 @@ import info.agentviolet.model.IWorld;
 
 public class ParticleSystemBase implements IParticleSystem {
 
-	private ParticleIterator particleIterator = new ParticleIterator(this);
 	protected ILocation location = new Location();
 	protected long lastUpdateTime = System.nanoTime();
 	protected boolean isActive = true;
@@ -97,8 +96,9 @@ public class ParticleSystemBase implements IParticleSystem {
 
 	@Override
 	public Iterator<IParticle> iterator() {
-		particleIterator.reset();
-		return particleIterator;
+//		particleIterator.reset();
+//		return particleIterator;
+		return new ParticleIterator(this);
 	}
 
 	@Override
@@ -148,7 +148,7 @@ public class ParticleSystemBase implements IParticleSystem {
 	private class ParticleIterator implements Iterator<IParticle> {
 
 		private final Particle currentParticle;
-		private int currentIndex = 0;
+		private int currentIndex = -1;
 
 		ParticleIterator(final ParticleSystemBase particleSystemBase) {
 			currentParticle = new Particle(particleSystemBase);
@@ -174,8 +174,8 @@ public class ParticleSystemBase implements IParticleSystem {
 			return currentIndex < (size() - 1);
 		}
 
-		public void reset() {
-			currentIndex = 0;
-		}
+//		public void reset() {
+//			currentIndex = -1;
+//		}
 	}
 }

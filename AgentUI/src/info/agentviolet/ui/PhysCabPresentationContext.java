@@ -1,33 +1,18 @@
 package info.agentviolet.ui;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.Shape;
-import info.agentviolet.model.IWorld;
 import info.agentviolet.model.IWorldObject;
+import info.agentviolet.view.IViewLayer;
+import info.agentviolet.view.IViewLayerPresentationContext;
 
-public class PhysCabPresentationContext extends PresentationContextBase {
+public class PhysCabPresentationContext extends PresentationContextBase implements IViewLayerPresentationContext {
 	
-//	private BufferedImage buffi = null;
-
 	@Override
-	public void setGraphicContext(Object graphicContext) {
-		this.g = (Graphics2D) graphicContext;
-		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-//		if (buffi == null) {
-//			buffi = new BufferedImage(g.getDeviceConfiguration().getBounds().width, g.getDeviceConfiguration().getBounds().height, BufferedImage.TYPE_INT_RGB);
-//		}
-	}
-
-	@Override
-	public void draw(IWorld world) {
-//		Graphics2D bg = buffi.createGraphics();
-//		bg.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
+	public void draw(IViewLayer layer) {
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, g.getDeviceConfiguration().getBounds().width, g.getDeviceConfiguration().getBounds().height);
-		for (IWorldObject wObject : world.getWorldObjects()) {
+		for (IWorldObject wObject : layer.getWorldObjects()) {
 			// if (wObject.isActive()) {
 
 			g.setColor(Color.DARK_GRAY);
@@ -35,9 +20,6 @@ public class PhysCabPresentationContext extends PresentationContextBase {
 			Shape shape = (Shape) wObject.getShape().getGraphicShape();						
 			g.fill(shape);			
 		}
-//		bg.dispose();
-
-//		g.drawImage(buffi, 0, 0, buffi.getWidth(), buffi.getHeight(), null);
-
+		
 	}
 }

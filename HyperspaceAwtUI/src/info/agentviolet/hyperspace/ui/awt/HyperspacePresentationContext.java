@@ -12,7 +12,6 @@ public class HyperspacePresentationContext extends PresentationContextBase {
 		g.setColor(Color.black);
 		g.fillRect(0, 0, g.getDeviceConfiguration().getBounds().width, g.getDeviceConfiguration().getBounds().height);
 		super.draw(world);
-
 		g.setColor(Color.WHITE);
 		g.drawString("Hallo", 100, 100);		
 	}
