@@ -10,11 +10,11 @@ import info.agentviolet.view.StaticBackgroundLayer;
 
 public class HyperspaceWorld extends WorldBase {
 
-	public HyperspaceWorld(IPresentationContext presCon) {
+	public HyperspaceWorld(final IPresentationContext presCon) {
 		attributes = new WorldAttributesBase();
 		viewLayers.clear();
 		viewLayers.add(new StaticBackgroundLayer(new StaticBitmapViewLayerPresentationContext(presCon)));
-		viewLayers.add(new StarfieldViewLayer(new ParticleSystemViewLayerPresentationContextBase(presCon), 1000));
+		viewLayers.add(new StarfieldViewLayer(new ParticleSystemViewLayerPresentationContextBase(presCon), 1500));
 	}
 
 }

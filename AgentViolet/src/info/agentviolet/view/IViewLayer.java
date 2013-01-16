@@ -14,6 +14,8 @@ public interface IViewLayer {
 	
 	void draw();
 	
+	void setVisibility(boolean isVisible);
+	
 	IWorldObject addObject(IWorldObject worldObject);
 	
 	Collection<IWorldObject> getWorldObjects();

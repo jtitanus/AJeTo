@@ -10,6 +10,7 @@ public class ViewLayerBase implements IViewLayer {
 
 	protected final List<IWorldObject> worldObjects = new ArrayList<IWorldObject>();
 	protected IViewLayerPresentationContext presentationContext;
+	protected boolean isVisible = true;
 
 	public ViewLayerBase(IViewLayerPresentationContext presentationContext) {
 		this.presentationContext = presentationContext;
@@ -28,7 +29,7 @@ public class ViewLayerBase implements IViewLayer {
 
 	@Override
 	public void update() {
-		if (!isStatic()) {
+		if (isVisible && !isStatic()) {
 			for (IWorldObject wo : worldObjects) {
 				wo.update();
 			}
@@ -37,7 +38,9 @@ public class ViewLayerBase implements IViewLayer {
 
 	@Override
 	public void draw() {
-		presentationContext.draw(this);
+		if (isVisible) {
+			presentationContext.draw(this);
+		}
 	}
 
 	@Override
@@ -53,6 +56,11 @@ public class ViewLayerBase implements IViewLayer {
 	@Override
 	public boolean isStatic() {
 		return false;
+	}
+
+	@Override
+	public void setVisibility(boolean isVisible) {
+		this.isVisible = isVisible;
 	}
 
 }
