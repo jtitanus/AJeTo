@@ -14,21 +14,15 @@ public abstract class WorldBase implements IWorld {
 
 	protected static final int DEFAULT_LAYER = 0;
 	protected IAttributes attributes;
-	protected final List<IViewLayer> viewLayers;
+	protected final List<IViewLayer> viewLayers = new ArrayList<IViewLayer>(5);
 	protected final List<IWorldObject> worldObjects = new ArrayList<IWorldObject>();
 
 	public WorldBase() {
 		attributes = new WorldAttributesBase();
-		viewLayers = initViewLayers();
-	}
-
-	protected List<IViewLayer> initViewLayers() {
-		List<IViewLayer> retList = new ArrayList<IViewLayer>(DEFAULT_LAYER+1);
 		for (int i = 0; i < DEFAULT_LAYER+1; i++) {
-			retList.add(new ViewLayerBase(null));
+			viewLayers.add(new ViewLayerBase(null));
 		}
-		return retList;
-	}
+	}	
 
 	@Override
 	public void update() {

@@ -1,6 +1,8 @@
-package info.agentviolet.view;
+package info.agentviolet.hyperspace.view;
 
-import info.agentviolet.model.objects.StarfieldParticleSystem;
+import info.agentviolet.hyperspace.objects.StarfieldParticleSystem;
+import info.agentviolet.view.IViewLayerPresentationContext;
+import info.agentviolet.view.ViewLayerBase;
 
 public class StarfieldViewLayer extends ViewLayerBase {
 

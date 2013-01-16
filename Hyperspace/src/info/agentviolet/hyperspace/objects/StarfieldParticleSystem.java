@@ -1,4 +1,7 @@
-package info.agentviolet.model.objects;
+package info.agentviolet.hyperspace.objects;
+
+import info.agentviolet.model.objects.IParticle;
+import info.agentviolet.model.objects.ParticleSystemBase;
 
 import java.util.Random;
 

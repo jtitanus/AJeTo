@@ -10,11 +10,11 @@ public class ViewLayerBase implements IViewLayer {
 
 	protected final List<IWorldObject> worldObjects = new ArrayList<IWorldObject>();
 	protected IViewLayerPresentationContext presentationContext;
-		
+
 	public ViewLayerBase(IViewLayerPresentationContext presentationContext) {
 		this.presentationContext = presentationContext;
 	}
-	
+
 	@Override
 	public IWorldObject addObject(IWorldObject worldObject) {
 		worldObjects.add(worldObject);
@@ -22,27 +22,29 @@ public class ViewLayerBase implements IViewLayer {
 	}
 
 	@Override
-	public Collection<IWorldObject> getWorldObjects() {		
+	public Collection<IWorldObject> getWorldObjects() {
 		return worldObjects;
 	}
-	
-	@Override	
+
+	@Override
 	public void update() {
-		for(IWorldObject wo : worldObjects) {
-			wo.update();
+		if (!isStatic()) {
+			for (IWorldObject wo : worldObjects) {
+				wo.update();
+			}
 		}
 	}
-	
+
 	@Override
 	public void draw() {
-		presentationContext.draw(this);	
+		presentationContext.draw(this);
 	}
-	
+
 	@Override
-	public IViewLayerPresentationContext getViewLayerPresentationContext() {		
+	public IViewLayerPresentationContext getViewLayerPresentationContext() {
 		return presentationContext;
 	}
-	
+
 	@Override
 	public void setViewLayerPresentationContext(IViewLayerPresentationContext presentationContext) {
 		this.presentationContext = presentationContext;
@@ -52,6 +54,5 @@ public class ViewLayerBase implements IViewLayer {
 	public boolean isStatic() {
 		return false;
 	}
-
 
 }
