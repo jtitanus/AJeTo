@@ -22,11 +22,11 @@ public class DiceTest {
 	@Test
 	public void testRollInt() {
 		Random rnd = new Random(13);
-		Assert.assertEquals(11, Dice.rollInt(rnd, 13));
+		Assert.assertEquals(10, Dice.rollInt(rnd, 13));
 		rnd = new Random(13);
-		Assert.assertEquals(8, Dice.rollInt(rnd, 12));
+		Assert.assertEquals(7, Dice.rollInt(rnd, 12));
 		rnd = new Random(13);
-		Assert.assertEquals(12, Dice.rollInt(rnd, 20));
+		Assert.assertEquals(11, Dice.rollInt(rnd, 20));
 		for (int i = 0; i < 1000; i++) {
 			Assert.assertTrue(20 > Dice.rollInt(rnd, 20));
 			Assert.assertTrue(0 <= Dice.rollInt(rnd, 20));

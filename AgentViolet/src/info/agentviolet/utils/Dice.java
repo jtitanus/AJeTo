@@ -11,9 +11,9 @@ public class Dice {
 	 * @param occurences
 	 * @return The rolled result. 
 	 */
-	public static Object roll(Object[] occurrences, Random ranGen) {
+	public static Object roll(Object[] occurrences, Random rnd) {
 		Object retval = null;
-		int rolledResult = Math.abs(ranGen.nextInt()) % 100;
+		int rolledResult = Math.abs(rnd.nextInt()) % 100;
 		for(int i= 0; i<occurrences.length; i++) {			
 			if(rolledResult <= (int)occurrences[i]){				
 				retval = occurrences[i+1];
@@ -21,7 +21,7 @@ public class Dice {
 			}
 			i++;
 		}
-		return retval;
+		return retval==null? occurrences[occurrences.length-1] : retval;
 	}
 	
 	public static int rollInt(Random ranGen, int max) {

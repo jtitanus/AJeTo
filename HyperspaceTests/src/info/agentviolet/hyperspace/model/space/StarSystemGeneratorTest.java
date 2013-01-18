@@ -1,7 +1,5 @@
 package info.agentviolet.hyperspace.model.space;
 
-import static org.junit.Assert.*;
-
 import java.util.Random;
 
 import junit.framework.Assert;
@@ -31,9 +29,8 @@ public class StarSystemGeneratorTest {
 	}
 
 	@Test
-	public void testRandomSeed() {
-		long seed = 13;
-		Random rnd = new Random(seed);
+	public void testRandomSeed() {		
+		Random rnd = new Random(13);
 		int i1 = rnd.nextInt();
 		int i2 = rnd.nextInt();
 		int i3 = rnd.nextInt();
@@ -47,8 +44,26 @@ public class StarSystemGeneratorTest {
 	}
 	
 	@Test
-	public void testGenerate() {
-		
+	public void testGenerate13() {
+		StarSystem system = StarSystemGenerator.generate(13);
+		Assert.assertNotNull(system);
+		Assert.assertNotNull(system.getStar());
+		Assert.assertEquals(1, system.getOrbits().size());
+		Assert.assertNotNull(system.getSpaceStation());
+		Assert.assertSame(system.getSpaceStation(), system.getOrbits().get(0));
+		Assert.assertEquals(1, StarSystem.getAllSpaceObjectsOf(system.getStar()).size());
 	}
+	
 
+	@Test
+	public void testGenerateNeg13() {
+		StarSystem system = StarSystemGenerator.generate(-13);
+		Assert.assertNotNull(system);
+		Assert.assertNotNull(system.getStar());
+		Assert.assertEquals(1, system.getOrbits().size());
+		Assert.assertNotNull(system.getSpaceStation());
+		Assert.assertSame(system.getSpaceStation(), system.getOrbits().get(0).getOrbits().get(0));
+		Assert.assertEquals(2, StarSystem.getAllSpaceObjectsOf(system.getStar()).size());
+	}
+	
 }
