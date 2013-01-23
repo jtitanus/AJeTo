@@ -24,7 +24,7 @@ public class Dice {
 		return retval==null? occurrences[occurrences.length-1] : retval;
 	}
 	
-	public static int rollInt(Random ranGen, int max) {
-		return Math.abs(ranGen.nextInt()) % max;
+	public static int rollInt(Random rnd, int max) {
+		return Math.abs(rnd.nextInt()) % max;
 	}
 }
