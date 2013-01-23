@@ -1,6 +1,6 @@
 package info.agentviolet.hyperspace.model.ship;
 
-public class Reactor implements IShipAggregate {
+public abstract class Reactor implements IShipAggregate {
 
 	protected SpaceShip ship;
 
@@ -12,4 +12,9 @@ public class Reactor implements IShipAggregate {
 	public SpaceShip getShip() {
 		return ship;
 	}
+	
+	/**
+	 * @return output in mega watt
+	 */
+	public abstract int getPowerOutput();
 }

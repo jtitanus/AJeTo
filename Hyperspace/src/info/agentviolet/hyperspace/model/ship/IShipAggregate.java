@@ -4,4 +4,8 @@ public interface IShipAggregate {
 
 	SpaceShip getShip();
 	
+	String getName();
+	
+	float getMass();
+	
 }

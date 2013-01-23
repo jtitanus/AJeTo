@@ -1,8 +1,10 @@
 package info.agentviolet.hyperspace.model.ship;
 
-public class Hyperdrive implements IShipAggregate {
+public abstract class Hyperdrive implements IPowerConsumer {
 
 	protected SpaceShip ship;
+	protected float maxVelocityNominal;
+	protected float rangeNominal;
 
 	public Hyperdrive(SpaceShip ship) {
 		this.ship = ship;
@@ -11,6 +13,15 @@ public class Hyperdrive implements IShipAggregate {
 	@Override
 	public SpaceShip getShip() {
 		return ship;
+	}	
+	
+	public float getMaxVelocityNominal() {
+		return maxVelocityNominal;
 	}
-
+			
+	public float getRangeNominal() {
+		return rangeNominal;
+	}
+	
+	
 }

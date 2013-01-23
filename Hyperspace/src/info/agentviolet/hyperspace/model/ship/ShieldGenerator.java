@@ -1,6 +1,6 @@
 package info.agentviolet.hyperspace.model.ship;
 
-public class ShieldGenerator implements IShipAggregate {
+public abstract class ShieldGenerator implements IPowerConsumer {
 
 	protected SpaceShip ship;
 

@@ -3,7 +3,6 @@ package info.agentviolet.hyperspace.model.space;
 import info.agentviolet.utils.Dice;
 
 import java.text.DecimalFormat;
-import java.util.Dictionary;
 import java.util.HashSet;
 import java.util.Random;
 

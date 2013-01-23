@@ -13,6 +13,7 @@ public class HyperspaceWorld extends WorldBase {
 		viewLayers.clear();
 	//	viewLayers.add(new StaticBackgroundLayer(new StaticBitmapViewLayerPresentationContext(presCon)));
 		viewLayers.add(new StarfieldViewLayer(new ParticleSystemViewLayerPresentationContextBase(presCon), 1500));
+		viewLayers.add(new StarfieldViewLayer(new ParticleSystemViewLayerPresentationContextBase(presCon), 1500));
 	}
 
 }
