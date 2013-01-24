@@ -8,6 +8,7 @@ import info.agentviolet.hyperspace.model.ship.aggregates.HyperdriveA;
 import info.agentviolet.hyperspace.model.ship.aggregates.ReactorA;
 import info.agentviolet.hyperspace.model.ship.aggregates.ShieldGeneratorA;
 import info.agentviolet.hyperspace.model.ship.aggregates.StandardHull;
+import info.agentviolet.hyperspace.model.ship.weapons.LaserGun;
 
 public class Hybris extends SpaceShip {
 
@@ -20,5 +21,7 @@ public class Hybris extends SpaceShip {
 		shieldGen = new ShieldGeneratorA(this);
 		storage = new Storage(this);
 		hull = new StandardHull(this, 120f);
+		armament.getWeaponArray().add(new LaserGun(this));
+		armament.getWeaponArray().add(new LaserGun(this));
 	}
 }

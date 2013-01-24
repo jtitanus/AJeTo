@@ -5,10 +5,8 @@ import info.agentviolet.hyperspace.model.ship.SpaceShip;
 
 public class ShieldGeneratorA extends ShieldGenerator {
 
-	private boolean isActivated = true;
-	
 	public ShieldGeneratorA(SpaceShip ship) {
-		super(ship);
+		super(ship, 100f);
 	}
 
 	@Override
@@ -20,21 +18,10 @@ public class ShieldGeneratorA extends ShieldGenerator {
 	public float getMass() {
 		return 1f;
 	}
-
 	
 	@Override
 	public int getPowerConsumption() {
-		return isActivated ? 1 : 0; // TODO get power of all weapons
+		return isActivated ? 1 : 0;
 	}
 
-	@Override
-	public boolean isActivated() {		
-		return isActivated;
-	}
-
-	@Override
-	public void switchActivation() {
-		isActivated = !isActivated;
-	}
-	
 }

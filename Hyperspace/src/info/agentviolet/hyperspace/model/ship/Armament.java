@@ -1,5 +1,7 @@
 package info.agentviolet.hyperspace.model.ship;
 
+import info.agentviolet.hyperspace.model.DamageType;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +11,10 @@ public class Armament implements IPowerConsumer {
 	private final SpaceShip ship;
 	private boolean isActivated = true;
 	private int energyPool = 0;
+	private int maxEnergyPool = 10;
 	private final List<IWeapon> weaponArray;
 	private final int maxWeaponCount;
-	private ITargetable target = null;	
+	private ITargetable target = null;
 
 	public Armament(SpaceShip ship, int maxWeaponCount) {
 		this.ship = ship;
@@ -62,18 +65,53 @@ public class Armament implements IPowerConsumer {
 	}
 
 	public boolean canFire(IWeapon weapon) {
-		return energyPool - weapon.getPowerConsumption() < 0;
+		return energyPool - weapon.getPowerConsumption() > 0;
 	}
 
-	public void fire(IWeapon weapon) {
-		energyPool -= weapon.getPowerConsumption();
-	}	
+	public void fireAtTarget(IWeapon weapon) {
+		if(target!=null && canFire(weapon)) {
+			energyPool -= weapon.getPowerConsumption();						
+			target.receiveDamage(weapon.getNominalDamage(), weapon.getDamageType());
+		}
+	}
+
+	public void fireLaserSalvo() {
+		for (IWeapon weapon : weaponArray) {
+			if(weapon.getDamageType()==DamageType.LASER && canFire(weapon)) {
+				fireAtTarget(weapon);
+			}
+		}
+	}
 	
+	public void fireIonSalvo() {
+		for (IWeapon weapon : weaponArray) {
+			if(weapon.getDamageType()==DamageType.ION && canFire(weapon)) {
+				fireAtTarget(weapon);
+			}
+		}
+	}
+	
+	public void fireAllEnergyWeapons() {
+		fireIonSalvo();
+		fireLaserSalvo();
+	}
+
 	public ITargetable getTarget() {
 		return target;
 	}
 
 	public void setTarget(ITargetable target) {
 		this.target = target;
+	}
+
+	public void update() {
+		if (isActivated) {
+			if (energyPool < maxEnergyPool)
+				energyPool++;
+		} else {
+			if (energyPool > 1)
+				energyPool--;
+		}
+
 	}
 }

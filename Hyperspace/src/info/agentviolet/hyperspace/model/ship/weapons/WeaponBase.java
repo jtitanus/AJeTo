@@ -7,7 +7,6 @@ import info.agentviolet.hyperspace.model.ship.SpaceShip;
 public abstract class WeaponBase implements IWeapon {
 	
 	private final SpaceShip ship;
-	private boolean isActivated = true;
 	
 	public WeaponBase(SpaceShip ship) {
 		this.ship = ship;
@@ -18,28 +17,16 @@ public abstract class WeaponBase implements IWeapon {
 		return ship;
 	}
 
-	@Override
-	public boolean canFire() {
-		return ship.getArmament().canFire(this);
-	}	
-	
-	@Override
-	public void fireAt(ITargetable target) {
-		if(ship.getArmament().canFire(this)){
-			ship.getArmament().fire(this);
-			target.receiveDamage(getNominalDamage(), getDamageType());
-		}
-	}
-	
-	@Override
-	public boolean isActivated() {		
-		return isActivated;
-	}
-
-	@Override
-	public void switchActivation() {
-		isActivated = !isActivated;
-	}
-
+//	@Override
+//	public boolean canFire() {
+//		return ship.getArmament().canFire(this);
+//	}	
+//	
+//	@Override
+//	public void fireAt(ITargetable target) {
+//		if(ship.getArmament().canFire(this)){
+//			ship.getArmament().fireAtTarget(this);			
+//		}
+//	}	
 
 }

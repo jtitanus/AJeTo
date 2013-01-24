@@ -29,7 +29,7 @@ public abstract class Hull implements IShipAggregate {
 	}
 	
 	public float getIntegrityPercentage() {
-		return (hullIntegrityNominal * 100f) / hullIntegrity; 
+		return (hullIntegrity * 100f) / hullIntegrityNominal; 
 	}
 
 }

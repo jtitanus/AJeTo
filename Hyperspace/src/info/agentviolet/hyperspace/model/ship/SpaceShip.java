@@ -1,8 +1,9 @@
 package info.agentviolet.hyperspace.model.ship;
 
 import info.agentviolet.hyperspace.model.DamageType;
+import info.agentviolet.impl.TimeSubject;
 
-public class SpaceShip implements ITargetable {
+public class SpaceShip extends TimeSubject implements ITargetable {
 	
 	protected String name;
 	protected final float netMass;	
@@ -35,11 +36,20 @@ public class SpaceShip implements ITargetable {
 
 	public float getNetMass() {		
 		return netMass;
-	}
-		
+	}		
 
 	public void receiveDamage(float damage, DamageType type) {
-		
+		if(type==DamageType.LASER) {
+			damage = shieldGen.receiveDamage(damage);
+			if(damage>0f) hull.receiveDamage(damage, type);
+		}
+		else if(type==DamageType.ION) {
+			damage = shieldGen.receiveDamage(damage);
+		}
+		else  if(type==DamageType.EXPLOSIVE) {
+			damage = shieldGen.receiveDamage(damage/2f);
+			if(damage>0f) hull.receiveDamage(damage, type);
+		}
 	}
 	
 	public String getName() {
@@ -111,6 +121,11 @@ public class SpaceShip implements ITargetable {
 				+ shieldGen.getPowerConsumption()  
 				+ hyperdrive.getPowerConsumption() 
 				+ lifeSupport.getPowerConsumption();
+	}
+	@Override
+	public void update() {
+		armament.update();
+		shieldGen.update();
 	}
 
 }
