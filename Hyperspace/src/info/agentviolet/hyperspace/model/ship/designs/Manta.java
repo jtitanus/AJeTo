@@ -9,16 +9,16 @@ import info.agentviolet.hyperspace.model.ship.aggregates.ReactorA;
 import info.agentviolet.hyperspace.model.ship.aggregates.ShieldGeneratorA;
 import info.agentviolet.hyperspace.model.ship.aggregates.StandardHull;
 
-public class Hybris extends SpaceShip {
+public class Manta extends SpaceShip {
 
-	public Hybris() {
-		super("Hybris", 50f);
+	public Manta() {
+		super("Manta", 40f);
 		hyperdrive = new HyperdriveA(this);
 		armament = new Armament(this, 2);
 		lifeSupport = new LifeSupport(this);
 		reactor = new ReactorA(this);
 		shieldGen = new ShieldGeneratorA(this);
 		storage = new Storage(this);
-		hull = new StandardHull(this, 120f);
+		hull = new StandardHull(this, 80f);
 	}
 }

@@ -5,7 +5,7 @@ import info.agentviolet.view.IViewLayer;
 import java.util.Collection;
 import java.util.List;
 
-public interface IWorld {
+public interface IWorld extends ITimeSubject {
 
 	Collection<IWorldObject> getWorldObjects();
 
@@ -22,8 +22,6 @@ public interface IWorld {
 	 * @param worldObject
 	 */
 	void addObjectToLayer(int layer, IWorldObject worldObject);
-
-	void update();
 	
 	IAttributes getAttributes();
 	

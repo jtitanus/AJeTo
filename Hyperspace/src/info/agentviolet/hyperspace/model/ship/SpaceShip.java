@@ -4,7 +4,8 @@ import info.agentviolet.hyperspace.model.DamageType;
 
 public class SpaceShip implements ITargetable {
 	
-	protected final float netMass;
+	protected String name;
+	protected final float netMass;	
 	
 	protected Armament armament;
 	protected Storage storage;
@@ -14,7 +15,8 @@ public class SpaceShip implements ITargetable {
 	protected LifeSupport lifeSupport;
 	protected Hull hull;
 			
-	public SpaceShip(float netMass) {
+	public SpaceShip(String name, float netMass) {
+		this.name = name;
 		this.netMass = netMass;
 	}
 	/**
@@ -40,7 +42,14 @@ public class SpaceShip implements ITargetable {
 		
 	}
 	
-
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String newName) {
+		name = newName;
+	}
+	
 	public Armament getArmament() {
 		return armament;
 	}

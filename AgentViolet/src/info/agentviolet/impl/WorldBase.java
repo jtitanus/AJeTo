@@ -10,7 +10,7 @@ import info.agentviolet.model.IWorldObject;
 import info.agentviolet.view.IViewLayer;
 import info.agentviolet.view.ViewLayerBase;
 
-public abstract class WorldBase implements IWorld {
+public abstract class WorldBase extends TimeSubject implements IWorld {
 
 	protected static final int DEFAULT_LAYER = 0;
 	protected IAttributes attributes;
@@ -22,7 +22,7 @@ public abstract class WorldBase implements IWorld {
 		for (int i = 0; i < DEFAULT_LAYER+1; i++) {
 			viewLayers.add(new ViewLayerBase(null));
 		}
-	}	
+	}
 
 	@Override
 	public void update() {

@@ -6,6 +6,6 @@ public interface IShipAggregate {
 	
 	String getName();
 	
-	float getMass();
+	float getMass();	
 	
 }

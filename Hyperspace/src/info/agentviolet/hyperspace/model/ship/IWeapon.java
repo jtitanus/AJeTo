@@ -1,6 +1,14 @@
 package info.agentviolet.hyperspace.model.ship;
 
-public interface IWeapon {
+import info.agentviolet.hyperspace.model.DamageType;
 
-	void inflictDamage(ITargetable target);
+public interface IWeapon extends IPowerConsumer {
+
+	boolean canFire();
+	
+	void fireAt(ITargetable target);
+	
+	float getNominalDamage();
+	
+	DamageType getDamageType();
 }
