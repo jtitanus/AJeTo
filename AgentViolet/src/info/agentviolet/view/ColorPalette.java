@@ -18,6 +18,7 @@ public class ColorPalette {
 	public static final int PASTEL_BLUE = 6;
 	public static final int YELLOW = 7;
 	public static final int WHITE = 8;
+	public static final int BROWN = 9;
 
 	private ColorPalette() {
 		palette.add(new VioletColor(0xFF, 0x00, 0x00));
@@ -29,6 +30,7 @@ public class ColorPalette {
 		palette.add(new VioletColor(0xA5, 0xAB, 0xD6));
 		palette.add(new VioletColor(0xFA, 0xF1, 0x78));
 		palette.add(new VioletColor(0xFF, 0xFF, 0xFF));
+		palette.add(new VioletColor(0xA3, 0x52, 0x00));
 	}
 
 	public static ColorPalette getInstance() {

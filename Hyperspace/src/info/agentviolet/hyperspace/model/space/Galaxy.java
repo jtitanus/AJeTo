@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Galaxy {
 
-	private final List<StarSystem> starsystems = new ArrayList<StarSystem>();
+	protected final List<StarSystem> starsystems = new ArrayList<StarSystem>();
 	
 	public List<StarSystem> getStarSystems() {
 		return starsystems;

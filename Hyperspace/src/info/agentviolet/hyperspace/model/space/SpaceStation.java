@@ -5,8 +5,14 @@ import info.agentviolet.view.ColorPalette;
 
 public class SpaceStation extends SpaceObject {
 
-	public SpaceStation() {
+	//protected final String name;
+	
+	public SpaceStation(/*String name*/) {
 		super(TYPE_SPACE_STATION, ColorPalette.getInstance().getColor(ColorPalette.GRAY));
+//		this.name = name;
 	}
 
+//	public String getName() {
+//		return name;
+//	}
 }

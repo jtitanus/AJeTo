@@ -1,6 +1,5 @@
 package info.agentviolet.hyperspace.model.ship.weapons;
 
-import info.agentviolet.hyperspace.model.ship.ITargetable;
 import info.agentviolet.hyperspace.model.ship.IWeapon;
 import info.agentviolet.hyperspace.model.ship.SpaceShip;
 
